@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             mMediaRecorder.setOnErrorListener(this);
-            //mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT );
+            mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT );
 			//mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC );
 			
             mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);// 视频源
@@ -217,7 +217,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			
 
 			mMediaRecorder.setOutputFormat(mProfile.fileFormat);
-	        mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
+	       // mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
 	       // mMediaRecorder.setVideoSize(profile.videoFrameWidth, profile.videoFrameHeight);
 	       // mMediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate);
 	        //mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.DEFAULT);
@@ -229,9 +229,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             //该设置是为了抽取视频的某些帧，真正录视频的时候，不要设置该参数
 //            mMediaRecorder.setCaptureRate(mFpsRange.get(0)[0]);//获取最小的每一秒录制的帧数
 			mMediaRecorder.setCaptureRate(20);//获取最小的每一秒录制的帧数
-			mMediaRecorder.setVideoEncodingBitRate(512*1024);
+			mMediaRecorder.setVideoEncodingBitRate(400*1024);
 			mMediaRecorder.setVideoFrameRate(20);
-			
+
+
+            mMediaRecorder.setAudioEncodingBitRate(mProfile.audioBitRate);
+            mMediaRecorder.setAudioChannels(mProfile.audioChannels);
+            mMediaRecorder.setAudioSamplingRate(mProfile.audioSampleRate);
+            mMediaRecorder.setAudioEncoder(mProfile.audioCodec);
 			
 
 			//mMediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.DEFAULT);
