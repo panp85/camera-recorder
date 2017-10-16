@@ -193,7 +193,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
 
             mMediaRecorder.setOnErrorListener(this);
-            mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT );
+            //mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT );
 			//mMediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC );
 			
             mMediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);// 视频源
@@ -209,7 +209,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 			mProfile.videoFrameHeight = 720;
 			
 
-            mMediaRecorder.setProfile(mProfile);
+            //mMediaRecorder.setProfile(mProfile);
 
 
 			
