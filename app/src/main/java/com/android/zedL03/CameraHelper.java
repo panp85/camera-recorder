@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.opensource.android_cameravideo;
+package com.android.zedL03;
 
 import android.annotation.TargetApi;
 import android.hardware.Camera;

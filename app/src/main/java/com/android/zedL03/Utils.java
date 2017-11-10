@@ -1,4 +1,4 @@
-package com.opensource.android_cameravideo;
+package com.android.zedL03;
 
 import android.app.Activity;
 import android.content.Context;

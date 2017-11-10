@@ -1,5 +1,6 @@
-package com.opensource.android_cameravideo;
+package com.android.zedL03;
 
+import com.android.zedL03.ZedTask;
 import android.app.KeyguardManager;
 import android.Manifest;
 import android.content.Intent;
@@ -31,8 +32,15 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.graphics.Color;
 import android.os.Looper;
+import android.os.Handler;
 
+import android.view.Menu;
+import android.view.MenuItem;
 
+import android.os.Message;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 
 
 import com.dinuscxj.progressbar.CircleProgressBar;
@@ -47,7 +55,9 @@ import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Method;
 
-	
+//#define  FILE_SIZE (60*5)
+
+
 import okhttp3.internal.Util;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
@@ -56,6 +66,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     //存放照片的文件夹
     public final static String  BASE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/video/";
+	public final static String TAG = "ZED_APP";
+	private int FILE_SIZE = (10);
 
     private SurfaceView mSurfaceView;
     private ImageView startBtn;
@@ -72,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TimerTask timerTask;
     private boolean isOpenCamera = true;// 是否一开始就打开摄像头
 //    private int mRecordMaxTime = 100;// 一次拍摄最长时间 10秒
-    private int mRecordMaxTime = 600;// 一次拍摄最长时间 60秒
+    private int mRecordMaxTime = FILE_SIZE;// 一次拍摄最长时间 60秒
     private OnRecordFinishListener mOnRecordFinishListener;// 录制完成回调接口
     private int mTimeCount;// 时间计数
     private File mVecordFile = null;// 文件
@@ -88,6 +100,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String dirname;
     private int i = 0;
 
+	private ZedTask zt;
+    private Thread mPoolThread;
+	private Context mAppContext;
+	private SharedPreferences mSharedPreferences;
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,10 +113,43 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+        //getSupportActionBar().hide();
         initView();
-    }
 
+		mAppContext = getApplicationContext();
+		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mAppContext);
+
+        mPoolThread = new Thread()  
+        {  
+            @Override  
+            public void run()  
+            {
+                Looper.prepare();
+                zt = new ZedTask(Looper.myLooper());
+				zt.start();
+                Looper.loop();  
+            }  
+        };  
+        mPoolThread.start();  
+		
+    }
+	
+    private class MainHandler extends Handler {
+        public MainHandler(Looper looper) {
+            super(looper);
+        }
+
+        @Override
+        public void handleMessage(Message msg) {
+/*            if (msg.what == HIDE_ACTION_BAR) {
+                removeMessages(HIDE_ACTION_BAR);
+                CameraActivity.this.setSystemBarsVisibility(false);
+            }else if ( msg.what == SWITCH_SAVE_PATH ) {
+                mCurrentModule.onSwitchSavePath();
+            }
+*/
+         }
+    }
     private void initView() {
         mProgressBar = (CircleProgressBar)findViewById(R.id.progress);
 
@@ -224,17 +274,38 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	        //mMediaRecorder.setVideoEncoder(mProfile.videoCodec);
 	        mMediaRecorder.setVideoEncoder(5);
 		   
-            //mMediaRecorder.setVideoSize(640, 480);
-			mMediaRecorder.setVideoSize(1280, 720);
             //该设置是为了抽取视频的某些帧，真正录视频的时候，不要设置该参数
 //            mMediaRecorder.setCaptureRate(mFpsRange.get(0)[0]);//获取最小的每一秒录制的帧数
 			mMediaRecorder.setCaptureRate(20);//获取最小的每一秒录制的帧数
-			mMediaRecorder.setVideoEncodingBitRate(400*1024);
 			mMediaRecorder.setVideoFrameRate(20);
 
+			//String key = mAppContext.getString(R.string.resolution_option_preference);
+			String value = mSharedPreferences.getString("selected_resolution_option", "3");
+			int r = Integer.valueOf(value).intValue();
+			if(r == 0)
+			{
+			    Log.i(TAG, "ppt, set resolution to 480x320,200k/s");
+				mMediaRecorder.setVideoSize(480, 320);
+				mMediaRecorder.setVideoEncodingBitRate(200*1024);
+			}
+			else if(r == 1)
+			{
+			    Log.i(TAG, "ppt, set resolution to 640x480,512k/s");
+				mMediaRecorder.setVideoSize(640, 480);
+				mMediaRecorder.setVideoEncodingBitRate(512*1024);
+			}
+			else if(r == 2)
+			{
+			    Log.i(TAG, "ppt, set resolution to 1280x720,1M/s");
+				//mMediaRecorder.setVideoSize(640, 480);
+				mMediaRecorder.setVideoSize(1280, 720);
+				mMediaRecorder.setVideoEncodingBitRate(1024*1024);
+			}
+				
 
-            mMediaRecorder.setAudioEncodingBitRate(mProfile.audioBitRate);
-            mMediaRecorder.setAudioChannels(mProfile.audioChannels);
+
+            mMediaRecorder.setAudioEncodingBitRate(50*1024);
+            mMediaRecorder.setAudioChannels(1);
             mMediaRecorder.setAudioSamplingRate(mProfile.audioSampleRate);
             mMediaRecorder.setAudioEncoder(mProfile.audioCodec);
 			
@@ -323,20 +394,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                stop();
+		                        if (mOnRecordFinishListener != null){
+		                            mOnRecordFinishListener.onRecordFinish();
+		                        }
+                                //stop();
+								stopRecord();
+								startRecord(recordFinishListener);
                             }
                         });
-						Looper.prepare();
+						//Looper.prepare();
 
-                        if (mOnRecordFinishListener != null){
-                            mOnRecordFinishListener.onRecordFinish();
-                        }
-					Looper.loop();
+                        
+					    //Looper.loop();
+					    
 
                     }
                 }
             };
-            mTimer.schedule(timerTask, 0, 100);
+            mTimer.schedule(timerTask, 0, 1000);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -725,7 +800,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         void onRecordFinish();
     }
 
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.menu_setting, menu);
+		return true;
+	}
 
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int id = item.getItemId();
+		if (id == R.id.menu_setting1) {
+            Intent i0 = new Intent(getApplicationContext(),FightListPreferenceActivity.class);
+            startActivityForResult(i0, 1000);
+			return true;
+		}
+
+		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	public boolean onPrepareOptionsMenu(Menu menu) {
+		boolean show = super.onPrepareOptionsMenu(menu);
+		if (!show)
+			return show;
+
+		return true;
+	}
 
 }
 
