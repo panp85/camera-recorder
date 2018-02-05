@@ -41,7 +41,7 @@ import android.os.Message;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-
+import android.content.pm.PackageManager;
 
 import com.dinuscxj.progressbar.CircleProgressBar;
 
@@ -105,19 +105,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	private Context mAppContext;
 	private SharedPreferences mSharedPreferences;
 
+
+	private boolean mHasCriticalPermissions;
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        if (checkPermissions() || !mHasCriticalPermissions) {
+            Log.v(TAG, "onCreate: Missing critical permissions.");
+            finish();
+            return;
+        }
+
         requestWindowFeature(Window.FEATURE_NO_TITLE);// 去掉标题栏
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
-        super.onCreate(savedInstanceState);
+        
+		
         setContentView(R.layout.activity_main);
         //getSupportActionBar().hide();
         initView();
 
 		mAppContext = getApplicationContext();
 		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mAppContext);
+		
 
         mPoolThread = new Thread()  
         {  
@@ -133,7 +146,35 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mPoolThread.start();  
 		
     }
-	
+
+	 private boolean checkPermissions() {
+        boolean requestPermission = false;
+
+        if (checkSelfPermission(Manifest.permission.CAMERA) ==
+                        PackageManager.PERMISSION_GRANTED &&
+                checkSelfPermission(Manifest.permission.RECORD_AUDIO) ==
+                        PackageManager.PERMISSION_GRANTED &&
+                checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
+                        PackageManager.PERMISSION_GRANTED &&
+                checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
+                        PackageManager.PERMISSION_GRANTED) {
+            mHasCriticalPermissions = true;
+        } else {
+            mHasCriticalPermissions = false;
+        }
+        final SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean isRequestShown = prefs.getBoolean("request_permission_p", false);
+        if(!isRequestShown || !mHasCriticalPermissions) {
+            Log.v(TAG, "Request permission");
+            Intent intent = new Intent(this, PermissionsActivity.class);
+            startActivity(intent);
+            SharedPreferences.Editor editor = prefs.edit();
+            editor.putBoolean("request_permission_p", true);
+            editor.apply();
+            requestPermission = true;
+       }
+        return requestPermission;
+    }
     private class MainHandler extends Handler {
         public MainHandler(Looper looper) {
             super(looper);
@@ -550,16 +591,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             e.printStackTrace();
         }
     }
-
-    @Override
-    public void surfaceCreated(SurfaceHolder holder) {
-	        String[] permissionsToRequest = new String[3];
-			permissionsToRequest[0] = Manifest.permission.CAMERA;
-	
+    private void permissions_request()
+    {
+        String[] permissionsToRequest = new String[3];
+		permissionsToRequest[0] = Manifest.permission.CAMERA;
 
 		permissionsToRequest[1] = Manifest.permission.RECORD_AUDIO;
 		permissionsToRequest[2] = Manifest.permission.READ_EXTERNAL_STORAGE;
 		requestPermissions(permissionsToRequest, 1);
+    }
+	
+    @Override
+    public void surfaceCreated(SurfaceHolder holder) {
+	    
 
     }
 
