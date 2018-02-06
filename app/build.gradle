@@ -10,6 +10,10 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        jackOptions {
+            enabled true
+        }
     }
     buildTypes {
         release {
@@ -17,16 +21,39 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
+allprojects {
+    repositories {
+        maven{
+            url 'https://jitpack.io'
+        }
+    }
+}
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+   compile fileTree(dir: 'libs', include: ['*.jar'])
+
+   androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+
+    compile 'net.vrallev.android:cat:1.0.5'
+    provided "org.projectlombok:lombok:1.16.12"
+
     compile 'com.android.support:appcompat-v7:25.3.1'
+    //compile 'com.android.support:appcompat-v7:25.4.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:design:25.4.0'
     compile 'com.dinuscxj:circleprogressbar:1.1.1'
     compile 'com.squareup.okhttp3:okhttp:3.6.0'
+
+    compile 'com.twofortyfouram:android-plugin-client-sdk-for-locale:4.0.3'
+
+    annotationProcessor 'org.projectlombok:lombok:1.16.12'
+
     testCompile 'junit:junit:4.12'
 }
