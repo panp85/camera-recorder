@@ -1,0 +1,90 @@
+[
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_btn_checkable.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_tint_btn_checkable.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_track.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_tint_switch_track.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_light.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\switch_thumb_material_light.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_btn_colored_text_material.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_btn_colored_text_material.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_spinner.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_tint_spinner.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_dark.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_primary_text_disable_only_material_dark.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_seek_thumb.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_tint_seek_thumb.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_search_url_text.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_search_url_text.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_light.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_primary_text_material_light.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_light.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_secondary_text_material_light.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_secondary_text_material_dark.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_secondary_text_material_dark.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_default.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_tint_default.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_hint_foreground_material_dark.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_hint_foreground_material_dark.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_hint_foreground_material_light.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_hint_foreground_material_light.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_material_dark.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_primary_text_material_dark.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_btn_colored_borderless_text_material.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_btn_colored_borderless_text_material.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_primary_text_disable_only_material_light.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_primary_text_disable_only_material_light.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_switch_thumb.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_tint_switch_thumb.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\design_error.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\d273eecdc3fe80c60b1688bd10c94f684e6a0a85\\output\\res\\color\\design_error.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\switch_thumb_material_dark.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\switch_thumb_material_dark.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\abc_tint_edittext.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\color\\abc_tint_edittext.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\color\\design_tint_password_toggle.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\d273eecdc3fe80c60b1688bd10c94f684e6a0a85\\output\\res\\color\\design_tint_password_toggle.xml"
+    }
+]

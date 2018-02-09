@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="C:\Users\pc\AppData\Local\Android\Sdk\platforms\android-25\android.jar"
+        revision="25.0.2"
+        sha1="712a0312fe844a21a1b3812fa960c363a1578984">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackRuntimeLibraries\debug\jars\8000\40\android-e96dc99df44a000da1e9b26783a4beb5779bbc69.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\8f4ed120b9c08be60a3f2f95e5275d5b8a94e7b3\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="c2deeac83ffa1304264bc755c2ddb84e7a7fa239">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-67f2e6741f6e6e5177df381ff8562cbe838defb5.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\ffb5fe7e1cfc27c7172f8ca2ec3172733426b3d0\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="58e1dc49a7db4043c2fd6df93ec14c40805a2a7b">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-3819a737e82d07084fa290ffb1107e47d6b5bc7e.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\2379602860ad4d1548c792e581bdb00b115ad178\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="a7a0aa678c3bbadb67fb41df9e107f7ee9087902">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-738eaf4afe2aad98f093b535e00ec930408d71dd.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\27.0.2\b9ef4342c934a1a8b107506273dc8061662a322\support-annotations-27.0.2.jar"
+        revision="25.0.2"
+        sha1="0b9ef4342c934a1a8b107506273dc8061662a322">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\support-annotations-27.0.2-71aa0bb22bc3bea6eb9360bac05ef06f47392a34.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\3cf47df7e796779c825fb86bce5e926a81c2d168\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="aeb8bf6b6451d52b6ae2eeb0c9917ad0de6755e4">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-a77cdac74d0d652bd99e55c6cf90d6631b86c329.jar" />
+    </item>
+    <item
+        jar="C:\android_projects\android-CameraVideo\app\libs\ftp4j-1.7.2.jar"
+        revision="25.0.2"
+        sha1="abd6a2ba75b142926052c4538611efda49e0b0e2">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\ftp4j-1.7.2-8248d638b1e776d57d363186730131e85f98d204.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\18abe6799062c42061dc95a27d5a615f877a1a51\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="b1e0cd070d7cf659ece90e919bff76e7ddc32532">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-0449406e4ebe3dace19eb3e4800e65c401618d22.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\4da5839da7b13dace8d0beb68ea819122e57d599\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="40a6b8f05124eb9e6012e18b80a6dbd13440e283">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-8bc4967b039402dbe61822ff4c9fe5017b018151.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.6.0\69edde9fc4b01c9fd51d25b83428837478c27254\okhttp-3.6.0.jar"
+        revision="25.0.2"
+        sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\okhttp-3.6.0-546bfc761620637763fb944c52966cbc8d4ad4dd.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\edf5fa985eadc05a7938670005db1504b4086778\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="99e993fce5fed87b2191728ba27635eb55fc167d">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-a1a35b4f293e097e115bac77ae11a38b6596da72.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\fd878dba7e7cd5efffaa2736e4fa6cfd17af296d\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="18d3eda98bb78c7a10a61d4973d3e40111a1f507">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-194813f7bcbb74b769fa635aaf739ff602b30e4d.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\8c4f086c4c23be08ffcdcf4832ce8fc44e556e7a\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="c61a0369f93fb7901fde1bdae68fc71de256244c">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-2cc130cf5dd165d5f69dd0e7243179cd8d412cfb.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\d273eecdc3fe80c60b1688bd10c94f684e6a0a85\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="cad1364721fc716a39bdc351d3637edb634c9aa5">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-823343609e245438a7876e81ecf2c34326bbd7ba.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\7d918ae85793f0c902d6972dddde04a6d320cc97\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="1a2ceee19825acfa1cfc5eb633dd798b417bd8ee">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-f1c2ad8db35826f3a14804d14ba333890f866470.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\0a0d9e328be30780f4af4e9ac1cd88f0462317b0\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="e04f28ac2dd9bbe48ced6fc87fedf46c2586f5d6">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-2e09dda8a48a113a3c440d4b9e366efe7567beb0.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\4af56b0a74c227beeaa542e916c76f863526b870\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="05e3d15c623cd98f0eb43c8249fb6151fae0786c">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-55f7e3c30cf804d03f9f531a49f4b1af7c2c342f.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\4131100d46d8bc99f107565efbab266997e2fe9d\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="b77e50b3c31d0fc64148530f7077f79ec114b5b9">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-69b32b94d6800ed6822692aa230461e75e1ccc57.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\9ed567b7ecb2b4c1554a1be09bbd356027f8f153\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="4961be1437163ab598620a3c907c0f3432936f51">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-37337cb3512835136798400e0c007daeefc796f2.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\2a8fa5c0c32dced08c806f5cb728e7eb5ac93152\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="812a8c21e1686cb8e55eebfb814c568b0c97e359">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-f4a2cfe62f3e68979d4ca555b5f36cb7538145ec.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\AppData\Local\Android\Sdk\platforms\android-25\optional\org.apache.http.legacy.jar"
+        revision="25.0.2"
+        sha1="5f0541a4298daa0590b22cfbde43f85e2a675545">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackRuntimeLibraries\debug\jars\8000\40\org.apache.http.legacy-8c91c6696b216c96a789afc302d4badb58f791cb.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\c63aee00157ff8a219ac544a098818bcc955f3b7\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="d29e451fd5bcc265989bf80afd4f149d95d72e7d">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-dcada1032bfd988dbb668690db561f75f7d8d29f.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
+        revision="25.0.2"
+        sha1="b9cd8fc6bd15cb915735d34535db30ece0c44603">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\constraint-layout-solver-1.0.2-942f8b12d6ef94e1e2e6dfb9cdfa5268f53229c9.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.gradle\caches\modules-2\files-2.1\net.jcip\jcip-annotations\1.0\afba4942caaeaf46aab0b976afd57cc7c181467e\jcip-annotations-1.0.jar"
+        revision="25.0.2"
+        sha1="afba4942caaeaf46aab0b976afd57cc7c181467e">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\jcip-annotations-1.0-0e553c4a77806e156d3d4388c6ccc3a332a7275e.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\4b4c79f168b50b974c81c8998ed98afc1c8898f4\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="a64026daf4819a589aea776f5deb19b257a104d1">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-6569bb1b9e7b2f87069b7bc65cb88f76c2bb95b7.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.gradle\caches\modules-2\files-2.1\org.projectlombok\lombok\1.16.12\64b2d2e8734b54ddba60a69df68a6dac627366c8\lombok-1.16.12.jar"
+        revision="25.0.2"
+        sha1="64b2d2e8734b54ddba60a69df68a6dac627366c8">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackRuntimeLibraries\debug\jars\8000\40\lombok-1.16.12-6fde2078182fa578439db00ed0b3edd091d11e76.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.11.0\840897fcd7223a8143f1d9b6f69714e7be34fd50\okio-1.11.0.jar"
+        revision="25.0.2"
+        sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\okio-1.11.0-99828fdfa575bb6fabe7331006cb80fcedea35bf.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\fdcbae5a5bad8ad125d168259b747a73f4252dc1\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-4a0364cf53684444a07aa500f29b69083e58a91a.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.android\build-cache\d90e0d76463d9ac2495e1f932290698fd0a35b60\output\jars\classes.jar"
+        revision="25.0.2"
+        sha1="44ee06abb66da30f5855e6bf54574e64cdcd982a">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-b106c2dfb41eabb76d945903f48091ca8d4f98aa.jar" />
+    </item>
+
+</items>

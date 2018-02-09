@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\tag_camera_light.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xxhdpi\\tag_camera_light.png"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher_round.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher_round.png"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_qs_ftp_server.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_qs_ftp_server.png"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\bg_camera_nav.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xxhdpi\\bg_camera_nav.png"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\ic_launcher.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xxhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\launcher.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xxhdpi\\launcher.png"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\notification.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xxhdpi\\notification.png"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\tag_camera_del.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xxhdpi\\tag_camera_del.png"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\tag_camera_info.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xxhdpi\\tag_camera_info.png"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\tag_record_starting.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xxhdpi\\tag_record_starting.png"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\tag_camera_start.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xxhdpi\\tag_camera_start.png"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi\\tag_camera_tran.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xxhdpi\\tag_camera_tran.png"
+    }
+]

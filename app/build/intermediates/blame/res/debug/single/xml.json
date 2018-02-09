@@ -1,0 +1,14 @@
+[
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\xml\\preferences.xml",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\xml\\preferences.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\xml\\resolution_options.xml",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\xml\\resolution_options.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\xml\\widget_info.xml",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\xml\\widget_info.xml"
+    }
+]

@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_qs_ftp_server.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xhdpi\\ic_qs_ftp_server.png"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\launcher.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xhdpi\\launcher.png"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\notification.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xhdpi\\notification.png"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xhdpi\\ic_launcher_round.png",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher_round.png"
+    }
+]

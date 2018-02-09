@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-mdpi-v4\\values-mdpi-v4.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 100,
+                    "endColumn": 119,
+                    "endOffset": 215
+                },
+                "from": {
+                    "file": "C:\\Users\\pc\\.android\\build-cache\\3cf47df7e796779c825fb86bce5e926a81c2d168\\output\\res\\values-mdpi-v4\\values-mdpi-v4.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 100,
+                        "endColumn": 119,
+                        "endOffset": 215
+                    }
+                }
+            }
+        ]
+    }
+]

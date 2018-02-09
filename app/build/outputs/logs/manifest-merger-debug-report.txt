@@ -1,0 +1,178 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:2:1-71:12
+	package
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:3:5-33
+		INJECTED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml
+		INJECTED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml
+		INJECTED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:2:11-69
+	android:versionCode
+		INJECTED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml
+		INJECTED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml
+uses-feature#android.hardware.camera
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:6:5-60
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:6:19-57
+uses-feature#android.hardware.camera.autofocus
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:7:5-70
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:7:19-67
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:9:22-78
+uses-permission#android.permission.CAMERA
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:10:5-65
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:10:22-62
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:11:5-71
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:11:22-68
+uses-permission#android.permission.FLASHLIGHT
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:12:5-69
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:12:22-66
+application
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:14:5-67:19
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\pc\.android\build-cache\d90e0d76463d9ac2495e1f932290698fd0a35b60\output\AndroidManifest.xml:9:5-20
+MERGED from [com.android.support:design:25.4.0] C:\Users\pc\.android\build-cache\d273eecdc3fe80c60b1688bd10c94f684e6a0a85\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:recyclerview-v7:25.4.0] C:\Users\pc\.android\build-cache\18abe6799062c42061dc95a27d5a615f877a1a51\output\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:transition:25.4.0] C:\Users\pc\.android\build-cache\4da5839da7b13dace8d0beb68ea819122e57d599\output\AndroidManifest.xml:22:5-26:19
+MERGED from [com.dinuscxj:circleprogressbar:1.1.1] C:\Users\pc\.android\build-cache\fd878dba7e7cd5efffaa2736e4fa6cfd17af296d\output\AndroidManifest.xml:11:5-14:19
+MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\pc\.android\build-cache\2379602860ad4d1548c792e581bdb00b115ad178\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-v4:25.4.0] C:\Users\pc\.android\build-cache\fdcbae5a5bad8ad125d168259b747a73f4252dc1\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-fragment:25.4.0] C:\Users\pc\.android\build-cache\c63aee00157ff8a219ac544a098818bcc955f3b7\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-media-compat:25.4.0] C:\Users\pc\.android\build-cache\4af56b0a74c227beeaa542e916c76f863526b870\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-core-utils:25.4.0] C:\Users\pc\.android\build-cache\0a0d9e328be30780f4af4e9ac1cd88f0462317b0\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] C:\Users\pc\.android\build-cache\9ed567b7ecb2b4c1554a1be09bbd356027f8f153\output\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-vector-drawable:25.4.0] C:\Users\pc\.android\build-cache\4131100d46d8bc99f107565efbab266997e2fe9d\output\AndroidManifest.xml:22:5-26:19
+MERGED from [com.android.support:support-core-ui:25.4.0] C:\Users\pc\.android\build-cache\8f4ed120b9c08be60a3f2f95e5275d5b8a94e7b3\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.android.support:support-compat:25.4.0] C:\Users\pc\.android\build-cache\4b4c79f168b50b974c81c8998ed98afc1c8898f4\output\AndroidManifest.xml:25:5-29:19
+MERGED from [com.twofortyfouram:android-plugin-client-sdk-for-locale:4.0.3] C:\Users\pc\.android\build-cache\3cf47df7e796779c825fb86bce5e926a81c2d168\output\AndroidManifest.xml:12:5-20
+MERGED from [com.twofortyfouram:android-plugin-api-for-locale:1.0.2] C:\Users\pc\.android\build-cache\7d918ae85793f0c902d6972dddde04a6d320cc97\output\AndroidManifest.xml:12:5-20
+MERGED from [com.twofortyfouram:android-spackle:2.0.3] C:\Users\pc\.android\build-cache\edf5fa985eadc05a7938670005db1504b4086778\output\AndroidManifest.xml:12:5-20
+MERGED from [com.twofortyfouram:android-assertion:1.2.0] C:\Users\pc\.android\build-cache\2a8fa5c0c32dced08c806f5cb728e7eb5ac93152\output\AndroidManifest.xml:26:5-20
+	android:label
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:18:9-41
+	android:supportsRtl
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:20:9-35
+	android:roundIcon
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:19:9-54
+	android:allowBackup
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:16:9-35
+	android:icon
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:17:9-43
+	android:theme
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:21:9-40
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:15:9-53
+activity#com.android.zedL03.MainActivity
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:23:9-30:20
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:23:19-65
+intent-filter#android.intent.action.MAIN+android.intent.category.DEFAULT+android.intent.category.HOME+android.intent.category.LAUNCHER
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:24:13-29:29
+action#android.intent.action.MAIN
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:25:17-69
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:25:25-66
+category#android.intent.category.HOME
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:26:17-73
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:26:27-70
+category#android.intent.category.DEFAULT
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:27:17-76
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:27:27-73
+category#android.intent.category.LAUNCHER
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:28:17-77
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:28:27-74
+activity#com.android.zedL03.PermissionsActivity
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:32:9-40:20
+	android:label
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:34:13-45
+	android:parentActivityName
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:36:13-73
+	android:configChanges
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:35:13-74
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:33:13-66
+meta-data#android.support.PARENT_ACTIVITY
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:37:13-39:67
+	android:value
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:39:17-64
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:38:17-63
+activity#com.android.zedL03.FightListPreferenceActivity
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:42:9-46:20
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:42:19-62
+activity#com.android.zedL03.swiftp.gui.MainActivity_Ftp
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:47:9-56:20
+	android:theme
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:49:13-48
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:48:13-74
+intent-filter#android.intent.category.LAUNCHER
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:50:13-55:29
+activity#com.android.ftp4j_client.FtpMainActivity
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:58:9-66:20
+	android:label
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:60:13-56
+	android:name
+		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:59:13-68
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:61:13-65:29
+uses-sdk
+INJECTED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+MERGED from [net.vrallev.android:cat:1.0.5] C:\Users\pc\.android\build-cache\8c4f086c4c23be08ffcdcf4832ce8fc44e556e7a\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support.constraint:constraint-layout:1.0.2] C:\Users\pc\.android\build-cache\d90e0d76463d9ac2495e1f932290698fd0a35b60\output\AndroidManifest.xml:5:5-7:41
+MERGED from [com.android.support:design:25.4.0] C:\Users\pc\.android\build-cache\d273eecdc3fe80c60b1688bd10c94f684e6a0a85\output\AndroidManifest.xml:21:5-23:62
+MERGED from [com.android.support:recyclerview-v7:25.4.0] C:\Users\pc\.android\build-cache\18abe6799062c42061dc95a27d5a615f877a1a51\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:transition:25.4.0] C:\Users\pc\.android\build-cache\4da5839da7b13dace8d0beb68ea819122e57d599\output\AndroidManifest.xml:20:5-44
+MERGED from [com.dinuscxj:circleprogressbar:1.1.1] C:\Users\pc\.android\build-cache\fd878dba7e7cd5efffaa2736e4fa6cfd17af296d\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\pc\.android\build-cache\2379602860ad4d1548c792e581bdb00b115ad178\output\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:support-v4:25.4.0] C:\Users\pc\.android\build-cache\fdcbae5a5bad8ad125d168259b747a73f4252dc1\output\AndroidManifest.xml:21:5-23:54
+MERGED from [com.android.support:support-fragment:25.4.0] C:\Users\pc\.android\build-cache\c63aee00157ff8a219ac544a098818bcc955f3b7\output\AndroidManifest.xml:21:5-23:60
+MERGED from [com.android.support:support-media-compat:25.4.0] C:\Users\pc\.android\build-cache\4af56b0a74c227beeaa542e916c76f863526b870\output\AndroidManifest.xml:21:5-23:63
+MERGED from [com.android.support:support-core-utils:25.4.0] C:\Users\pc\.android\build-cache\0a0d9e328be30780f4af4e9ac1cd88f0462317b0\output\AndroidManifest.xml:21:5-23:61
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] C:\Users\pc\.android\build-cache\9ed567b7ecb2b4c1554a1be09bbd356027f8f153\output\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-vector-drawable:25.4.0] C:\Users\pc\.android\build-cache\4131100d46d8bc99f107565efbab266997e2fe9d\output\AndroidManifest.xml:20:5-43
+MERGED from [com.android.support:support-core-ui:25.4.0] C:\Users\pc\.android\build-cache\8f4ed120b9c08be60a3f2f95e5275d5b8a94e7b3\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.android.support:support-compat:25.4.0] C:\Users\pc\.android\build-cache\4b4c79f168b50b974c81c8998ed98afc1c8898f4\output\AndroidManifest.xml:21:5-23:58
+MERGED from [com.twofortyfouram:android-plugin-client-sdk-for-locale:4.0.3] C:\Users\pc\.android\build-cache\3cf47df7e796779c825fb86bce5e926a81c2d168\output\AndroidManifest.xml:7:5-10:267
+MERGED from [com.twofortyfouram:android-plugin-api-for-locale:1.0.2] C:\Users\pc\.android\build-cache\7d918ae85793f0c902d6972dddde04a6d320cc97\output\AndroidManifest.xml:8:5-10:41
+MERGED from [com.twofortyfouram:android-spackle:2.0.3] C:\Users\pc\.android\build-cache\edf5fa985eadc05a7938670005db1504b4086778\output\AndroidManifest.xml:8:5-10:41
+MERGED from [com.twofortyfouram:android-assertion:1.2.0] C:\Users\pc\.android\build-cache\2a8fa5c0c32dced08c806f5cb728e7eb5ac93152\output\AndroidManifest.xml:22:5-24:41
+MERGED from [com.twofortyfouram:android-annotation:2.0.1] C:\Users\pc\.android\build-cache\ffb5fe7e1cfc27c7172f8ca2ec3172733426b3d0\output\AndroidManifest.xml:8:5-10:41
+	tools:overrideLibrary
+		ADDED from [com.android.support:design:25.4.0] C:\Users\pc\.android\build-cache\d273eecdc3fe80c60b1688bd10c94f684e6a0a85\output\AndroidManifest.xml:23:9-59
+	android:targetSdkVersion
+		INJECTED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml
+		INJECTED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml
+		INJECTED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml
+meta-data#android.support.VERSION
+ADDED from [com.android.support:design:25.4.0] C:\Users\pc\.android\build-cache\d273eecdc3fe80c60b1688bd10c94f684e6a0a85\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:recyclerview-v7:25.4.0] C:\Users\pc\.android\build-cache\18abe6799062c42061dc95a27d5a615f877a1a51\output\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:transition:25.4.0] C:\Users\pc\.android\build-cache\4da5839da7b13dace8d0beb68ea819122e57d599\output\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:appcompat-v7:25.4.0] C:\Users\pc\.android\build-cache\2379602860ad4d1548c792e581bdb00b115ad178\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-v4:25.4.0] C:\Users\pc\.android\build-cache\fdcbae5a5bad8ad125d168259b747a73f4252dc1\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-fragment:25.4.0] C:\Users\pc\.android\build-cache\c63aee00157ff8a219ac544a098818bcc955f3b7\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-media-compat:25.4.0] C:\Users\pc\.android\build-cache\4af56b0a74c227beeaa542e916c76f863526b870\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-core-utils:25.4.0] C:\Users\pc\.android\build-cache\0a0d9e328be30780f4af4e9ac1cd88f0462317b0\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:animated-vector-drawable:25.4.0] C:\Users\pc\.android\build-cache\9ed567b7ecb2b4c1554a1be09bbd356027f8f153\output\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-vector-drawable:25.4.0] C:\Users\pc\.android\build-cache\4131100d46d8bc99f107565efbab266997e2fe9d\output\AndroidManifest.xml:23:9-25:38
+MERGED from [com.android.support:support-core-ui:25.4.0] C:\Users\pc\.android\build-cache\8f4ed120b9c08be60a3f2f95e5275d5b8a94e7b3\output\AndroidManifest.xml:26:9-28:38
+MERGED from [com.android.support:support-compat:25.4.0] C:\Users\pc\.android\build-cache\4b4c79f168b50b974c81c8998ed98afc1c8898f4\output\AndroidManifest.xml:26:9-28:38
+	android:value
+		ADDED from [com.android.support:design:25.4.0] C:\Users\pc\.android\build-cache\d273eecdc3fe80c60b1688bd10c94f684e6a0a85\output\AndroidManifest.xml:28:13-35
+	android:name
+		ADDED from [com.android.support:design:25.4.0] C:\Users\pc\.android\build-cache\d273eecdc3fe80c60b1688bd10c94f684e6a0a85\output\AndroidManifest.xml:27:13-51
