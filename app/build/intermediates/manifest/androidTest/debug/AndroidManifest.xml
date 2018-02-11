@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.zedL03.test" >
+    package="com.pandroid.test" >
 
     <uses-sdk
         android:minSdkVersion="15"
@@ -10,8 +10,8 @@
         android:name="android.support.test.runner.AndroidJUnitRunner"
         android:functionalTest="false"
         android:handleProfiling="false"
-        android:label="Tests for com.android.zedL03"
-        android:targetPackage="com.android.zedL03" />
+        android:label="Tests for com.pandroid"
+        android:targetPackage="com.pandroid" />
 
     <application>
         <uses-library android:name="android.test.runner" />

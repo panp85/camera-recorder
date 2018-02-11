@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.android.zedL03">
+    android:versionName="0.0.1"
+    package="com.pandroid">
 
 
     <uses-feature android:name="android.hardware.camera" />
@@ -10,9 +11,14 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-        android:name="com.android.zedL03.swiftp.App"
+        android:name="com.pandroid.App"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -20,7 +26,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         >
-        <activity android:name="com.android.zedL03.MainActivity">
+        <activity android:name="com.pandroid.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.HOME" />
@@ -29,23 +35,29 @@
             </intent-filter>
         </activity>
 
-        <activity
-            android:name="com.android.zedL03.PermissionsActivity"
-            android:label="@string/app_name"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:parentActivityName="com.android.zedL03.MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.android.zedL03.MainActivity" />
+        <activity android:name="com.pandroid.zedL03.MainActivity_Camera">
+            <intent-filter>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
         </activity>
 
-        <activity android:name=".FightListPreferenceActivity">
+        <activity
+            android:name="com.pandroid.main.PermissionsActivity"
+            android:label="@string/app_name"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:parentActivityName="com.pandroid.zedL03.MainActivity_Camera" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.pandroid.zedL03.MainActivity_Camera" />
+        </activity>
+
+        <activity android:name="com.pandroid.zedL03.FightListPreferenceActivity">
             <!--<intent-filter>-->
                 <!--<action android:name="android.intent.action.MAIN" />-->
             <!--</intent-filter>-->
         </activity>
         <activity
-            android:name="com.android.zedL03.swiftp.gui.MainActivity_Ftp"
+            android:name="com.pandroid.ftp.swiftp.gui.MainActivity_Ftp"
             android:theme="@style/AppThemeDark">
             <intent-filter>
                 <!--<action android:name="android.intent.action.MAIN" />-->
@@ -56,14 +68,69 @@
         </activity>
 
         <activity
-            android:name="com.android.ftp4j_client.FtpMainActivity"
+            android:name="com.pandroid.ftp.ftp4j_client.FtpMainActivity"
             android:label="@string/title_activity_main" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <service android:name="com.pandroid.ftp.swiftp.FsService" />
+        <receiver
+            android:name="com.pandroid.ftp.swiftp.gui.FsNotification"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="be.ppareit.swiftp.FTPSERVER_STARTED" />
+                <action android:name="be.ppareit.swiftp.FTPSERVER_STOPPED" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.pandroid.ftp.swiftp.NsdService" />
+        <receiver
+            android:name="com.pandroid.ftp.swiftp.NsdService$StartStopReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="be.ppareit.swiftp.FTPSERVER_STARTED" />
+                <action android:name="be.ppareit.swiftp.FTPSERVER_STOPPED" />
+            </intent-filter>
+        </receiver>
+        <!-- Don't export this receiver in free, this clashes with paid -->
+        <receiver
+            android:name="com.pandroid.ftp.swiftp.RequestStartStopReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="be.ppareit.swiftp.ACTION_START_FTPSERVER" />
+                <action android:name="be.ppareit.swiftp.ACTION_STOP_FTPSERVER" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.pandroid.ftp.swiftp.WifiStateChangeReceiver">
+            <intent-filter>
+                <action android:name="android.net.wifi.STATE_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name="com.pandroid.ftp.swiftp.WifiStateChangeReceiver$StartServerService" />
+        <service android:name="com.pandroid.ftp.swiftp.WifiStateChangeReceiver$StopServerService" />
+
+        <receiver
+            android:name="com.pandroid.ftp.swiftp.gui.FsWidgetProvider"
+            android:exported="false"
+            android:icon="@mipmap/launcher"
+            android:label="@string/swiftp_name">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+                <action android:name="be.ppareit.swiftp.FTPSERVER_STARTED" />
+                <action android:name="be.ppareit.swiftp.FTPSERVER_STOPPED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/widget_info" />
+        </receiver>
+
+        <service android:name="com.pandroid.ftp.swiftp.gui.FsWidgetProvider$UpdateService" />
     </application>
 
 
