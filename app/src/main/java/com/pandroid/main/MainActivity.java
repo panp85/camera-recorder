@@ -57,6 +57,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
 
@@ -64,8 +65,7 @@ import com.pandroid.R;
 //#define  FILE_SIZE (60*5)
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener
-        , SurfaceHolder.Callback{
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
 
     //存放照片的文件夹
@@ -124,6 +124,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setContentView(R.layout.activity_main);
         initView();
+
+		mSurfaceView = (SurfaceView)findViewById(R.id.preview_content);
+        com.pandroid.camera.CameraImpl.instance(mAppContext).setSurfaceView(mSurfaceView, this);
+
+/*
+		try {
+            Thread.sleep(1000);
+        }catch (InterruptedException e) {
+            return;
+        }
+        */
     }
 
 	 private boolean checkPermissions() {
@@ -183,10 +194,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     ftpBtn.setChecked(true);
                     ftpBtn.setBackgroundColor(getResources().getColor(R.color.green));
                     onClickSelect();
-                    //onClickSimpleToast.makeText(MainActivity.this, "ftp server已打开", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "ftp server已打开", Toast.LENGTH_SHORT).show();
                 }else{
                     ftpBtn.setChecked(false);
                     ftpBtn.setBackgroundColor(getResources().getColor(R.color.red));
+                    sendBroadcast(new Intent(com.pandroid.ftp.swiftp.FsService.ACTION_STOP_FTPSERVER));
                     Toast.makeText(MainActivity.this, "ftp server已关闭", Toast.LENGTH_SHORT).show();
                 }
             }
@@ -202,6 +214,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
                 Log.i(TAG, "app ppt, in onClickSimple, back.");
+				sendBroadcast(new Intent(com.pandroid.ftp.swiftp.FsService.ACTION_START_FTPSERVER));
+                Toast.makeText(MainActivity.this, "ftp server已打开", Toast.LENGTH_SHORT).show();
             }
         }).setNegativeButton("打开activity", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface arg0, int arg1) {
@@ -239,28 +253,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.going:
                 Log.i(TAG, "app ppt, in onClick, going");
+				com.pandroid.camera.CameraImpl.instance(mAppContext).openCamera();
+                com.pandroid.camera.CameraImpl.instance(mAppContext).startRecord();
+                appBtn.setText("后台应用正在运行.....");
+                appBtn.setBackgroundColor(getResources().getColor(R.color.green));
                 break;
 
         }
     }
-
-	
-    @Override
-    public void surfaceCreated(SurfaceHolder holder) {
-	    
-
-    }
-
-    @Override
-    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
-        
-    }
-	
-
-    @Override
-    public void surfaceDestroyed(SurfaceHolder holder) {
-    }
-
 
 
 	@Override

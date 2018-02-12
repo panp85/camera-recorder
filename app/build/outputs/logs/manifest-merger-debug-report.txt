@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:2:1-138:12
+ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:2:1-136:12
 	package
 		ADDED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml:4:5-27
 		INJECTED from C:\android_projects\android-CameraVideo\app\src\main\AndroidManifest.xml

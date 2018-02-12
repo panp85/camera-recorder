@@ -110,8 +110,16 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
 
     @Override
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+	protected void onCreate(Bundle savedInstanceState) {
+	    super.onCreate(savedInstanceState);
+		init();
+		setContentView(R.layout.activity_main_camera);
+		mSurfaceView = (SurfaceView)findViewById(R.id.surfaceView);
+        mSurfaceHolder = mSurfaceView.getHolder();
+		initView();
+	}
+
+    protected void init() {
 
         if (checkPermissions() || !mHasCriticalPermissions) {
             Log.v(TAG, "onCreate: Missing critical permissions.");
@@ -124,9 +132,9 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);// 设置全屏
         
 		
-        setContentView(R.layout.activity_main_camera);
+        //setContentView(R.layout.activity_main_camera);
         //getSupportActionBar().hide();
-        initView();
+        //initView();
 
 		mAppContext = getApplicationContext();
 		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mAppContext);
@@ -204,8 +212,8 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
         findViewById(R.id.exitBtn).setOnClickListener(this);
         findViewById(R.id.switchCamera).setOnClickListener(this);
 
-        mSurfaceView = (SurfaceView)findViewById(R.id.surfaceView);
-        mSurfaceHolder = mSurfaceView.getHolder();// 取得holder
+        //mSurfaceView = (SurfaceView)findViewById(R.id.surfaceView);
+        //mSurfaceHolder = mSurfaceView.getHolder();// 取得holder
         mSurfaceHolder.addCallback(this); // holder加入回调接口
         mSurfaceHolder.setKeepScreenOn(true);
 
@@ -255,6 +263,13 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
         });
     }
 
+
+	private void setSurfaceView(SurfaceView sv)
+    {
+        mSurfaceView = sv;
+        mSurfaceHolder = mSurfaceView.getHolder();// 取得holder
+    }
+	
     /**
      * 释放摄像头资源
      */
@@ -298,15 +313,11 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
 
 			mProfile.videoFrameWidth = 1280;
 			mProfile.videoFrameHeight = 720;
-			
 
             //mMediaRecorder.setProfile(mProfile);
 
-
-			
 			//mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
 			
-
 			mMediaRecorder.setOutputFormat(mProfile.fileFormat);
 	       // mMediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
 	       // mMediaRecorder.setVideoSize(profile.videoFrameWidth, profile.videoFrameHeight);
@@ -342,8 +353,6 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
 				mMediaRecorder.setVideoSize(1280, 720);
 				mMediaRecorder.setVideoEncodingBitRate(1024*1024);
 			}
-				
-
 
             mMediaRecorder.setAudioEncodingBitRate(50*1024);
             mMediaRecorder.setAudioChannels(1);
@@ -439,8 +448,7 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
 		                            mOnRecordFinishListener.onRecordFinish();
 		                        }
                                 //stop();
-								stopRecord();
-								startRecord(recordFinishListener);
+								
                             }
                         });
 						//Looper.prepare();
@@ -448,6 +456,8 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
                         
 					    //Looper.loop();
 					    
+					   stopRecord();
+					   startRecord(recordFinishListener);
 
                     }
                 }
@@ -532,7 +542,7 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
         }
         // 创建文件
         try {
-            mVecordFile = new File(FileDir.getAbsolutePath() + "/" + Utils.getDateNumber() +".mp4");
+            mVecordFile = new File(FileDir.getAbsolutePath() + "/" + com.pandroid.camera.Utils.getDateNumber() +".mp4");
             Log.d("Path:", mVecordFile.getAbsolutePath());
         } catch (Exception e) {
             e.printStackTrace();
@@ -633,7 +643,7 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
 
             List<Camera.Size> mSupportedPreviewSizes = parameters.getSupportedPreviewSizes();
             List<Camera.Size> mSupportedVideoSizes = parameters.getSupportedVideoSizes();
-            optimalSize = CameraHelper.getOptimalVideoSize(mSupportedVideoSizes,
+            optimalSize = com.pandroid.camera.CameraHelper.getOptimalVideoSize(mSupportedVideoSizes,
                     mSupportedPreviewSizes, height, width);
 
             //parameters.setPreviewSize(optimalSize.width, optimalSize.height); // 设置预览图像大小

@@ -133,6 +133,4 @@
         <service android:name="com.pandroid.ftp.swiftp.gui.FsWidgetProvider$UpdateService" />
     </application>
 
-
-
 </manifest>
