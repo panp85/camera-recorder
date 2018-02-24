@@ -55,12 +55,18 @@ import java.lang.reflect.Method;
 import com.pandroid.R;
 import android.app.Activity;
 
+import android.hardware.Camera.FaceDetectionListener;
+import android.os.HandlerThread;
 
 import com.pandroid.main.PermissionsActivity;
 
+
+
+
 //#define  FILE_SIZE (60*5)
 
-public class  CameraImpl implements MediaRecorder.OnErrorListener, SurfaceHolder.Callback {
+public class  CameraImpl implements MediaRecorder.OnErrorListener, SurfaceHolder.Callback 
+		, FaceDetectionListener {
 
     //存放照片的文件夹
 	public final static String TAG = "CameraImpl";
@@ -102,17 +108,26 @@ public class  CameraImpl implements MediaRecorder.OnErrorListener, SurfaceHolder
 
 	private static CameraImpl mCameraImpl;
 
+	private CameraHandler mCameraHandler;
+	private CameraFaceDetectionCallback mCallback;
+	private Handler mMainHandler_ui;
+
 	public static synchronized CameraImpl instance(Context context) {
         if (mCameraImpl == null) {
             mCameraImpl = new CameraImpl();
 			mCameraImpl.mAppContext = context;
 			mCameraImpl.init();
+
+
 		    //mCameraImpl.initView();
         }
         
         return mCameraImpl;
     }
     protected void init() {
+        HandlerThread ht = new HandlerThread("Camera Handler Thread");
+        ht.start();
+        mCameraHandler = new CameraHandler(ht.getLooper());
 		this.mOnRecordFinishListener = recordFinishListener;
 		mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mAppContext); 
     }
@@ -121,6 +136,8 @@ public class  CameraImpl implements MediaRecorder.OnErrorListener, SurfaceHolder
         mSurfaceHolder.addCallback(this); // holder加入回调接口
         mSurfaceHolder.setKeepScreenOn(true);
     }
+	
+	private boolean mIsLayoutInitializedAlready = false;
 
 
 	public void setSurfaceView(SurfaceView sv, Activity a)
@@ -129,6 +146,22 @@ public class  CameraImpl implements MediaRecorder.OnErrorListener, SurfaceHolder
         mSurfaceView = sv;
         mSurfaceHolder = mSurfaceView.getHolder();// 取得holder
         initView();
+
+/*
+		mSurfaceView.addOnLayoutChangeListener(new OnLayoutChangeListener() {
+            @Override
+            public void onLayoutChange(View v, int left, int top, int right,
+                    int bottom, int oldLeft, int oldTop, int oldRight,
+                    int oldBottom) {
+                int width = right - left;
+                int height = bottom - top;
+
+                if (!mIsLayoutInitializedAlready) {
+                    layoutPreview(1);
+                }
+            }
+        });
+        */
     }
 	
     /**
@@ -427,9 +460,10 @@ public class  CameraImpl implements MediaRecorder.OnErrorListener, SurfaceHolder
             e.printStackTrace();
         }
     }
-
-    public android.hardware.Camera openCamera()
+    private int mCameraId = 0;
+    public android.hardware.Camera openCamera(Handler uiMainH)
     {
+        mMainHandler_ui = uiMainH;
         int CAMERA_HAL_API_VERSION_1_0 = 0x100;
         Log.i(TAG, "cameraImpl ppt, in openCamera, go in.\n");
         if (mCamera != null) {
@@ -440,13 +474,13 @@ public class  CameraImpl implements MediaRecorder.OnErrorListener, SurfaceHolder
                 Method openMethod = Class.forName("android.hardware.Camera").getMethod(
                         "openLegacy", int.class, int.class);
                 mCamera = (android.hardware.Camera) openMethod.invoke(
-                        null, 0, CAMERA_HAL_API_VERSION_1_0);
+                        null, mCameraId, CAMERA_HAL_API_VERSION_1_0);
             } catch (Exception e) {
-                mCamera = android.hardware.Camera.open(0);
+                mCamera = android.hardware.Camera.open(mCameraId);
             }
             if (mCamera == null)
                 return null;
-            mCamera.setDisplayOrientation(90);
+            mCamera.setDisplayOrientation(270);
             mCamera.setPreviewDisplay(mSurfaceHolder);
             parameters = mCamera.getParameters();// 获得相机参数
 
@@ -455,12 +489,13 @@ public class  CameraImpl implements MediaRecorder.OnErrorListener, SurfaceHolder
             optimalSize = CameraHelper.getOptimalVideoSize(mSupportedVideoSizes,
                     mSupportedPreviewSizes, 640, 480);
 
-            //parameters.setPreviewSize(optimalSize.width, optimalSize.height); // 设置预览图像大小
-            parameters.setPreviewSize(1280, 720); // 设置预览图像大小
+            parameters.setPreviewSize(optimalSize.width, optimalSize.height); // 设置预览图像大小
+            //parameters.setPreviewSize(1280, 720); // 设置预览图像大小
 
             parameters.set("orientation", "portrait");
             List<String> focusModes = parameters.getSupportedFocusModes();
-            if (focusModes.contains("continuous-video")) {
+            if (focusModes.contains("continuous-video")) 
+			{
                 parameters.setFocusMode(Camera.Parameters.FOCUS_MODE_CONTINUOUS_VIDEO);
             }
             mFpsRange =  parameters.getSupportedPreviewFpsRange();
@@ -477,16 +512,141 @@ public class  CameraImpl implements MediaRecorder.OnErrorListener, SurfaceHolder
 			parameters.setPreviewFrameRate(20);
 			parameters.setPreviewFpsRange(20000, 20000);
 
+            parameters.set("face-detection", "on");
+
             mCamera.setParameters(parameters);// 设置相机参数
             mCamera.startPreview();// 开始预览
+            
+		    Camera.CameraInfo info = new Camera.CameraInfo();	
+			Camera.getCameraInfo(mCameraId, info);
+            Log.e("camera", "camera ppt, in openCamera, camera info: " + info.facing + ", " + info.orientation);  
 
-
+            mCamera.setPreviewCallback(new Camera.PreviewCallback(){
+				public void onPreviewFrame(byte[] data, Camera camera) {
+					if(mCallback != null)
+					{
+					    mCallback.processFace(data, camera);
+					}
+				}  
+			});
         }catch (Exception io){
             io.printStackTrace();
         }
 
         return mCamera;
     }
+
+
+	/*
+	public void layoutPreview(float ratio) {
+
+		FrameLayout.LayoutParams lp;
+		float scaledTextureWidth, scaledTextureHeight;
+		int rotation = CameraUtil.getDisplayRotation(mActivity);
+		mScreenRatio = CameraUtil.determineRatio(ratio);
+		Log.i(TAG, "photoui ppt camera, in layoutPreview, mScreenRatio = " + mScreenRatio + "; ratio = " + ratio + ", " + 
+			CameraUtil.determinCloseRatio(ratio));
+		if (mScreenRatio == CameraUtil.RATIO_16_9
+				&& CameraUtil.determinCloseRatio(ratio) == CameraUtil.RATIO_4_3) {
+			int l = (mTopMargin + mBottomMargin) * 4;
+			int s = l * 9 / 16;
+			switch (rotation) {
+				case 90:
+					lp = new FrameLayout.LayoutParams(l * 3 / 4, s);
+					lp.setMargins(mTopMargin, 0, mBottomMargin, 0);
+					scaledTextureWidth = l * 3 / 4;
+					scaledTextureHeight = s;
+					break;
+				case 180:
+					lp = new FrameLayout.LayoutParams(s, l * 3 / 4);
+					lp.setMargins(0, mBottomMargin, 0, mTopMargin);
+					scaledTextureWidth = s;
+					scaledTextureHeight = l * 3 / 4;
+					break;
+				case 270:
+					lp = new FrameLayout.LayoutParams(l * 3 / 4, s);
+					lp.setMargins(mBottomMargin, 0, mTopMargin, 0);
+					scaledTextureWidth = l * 3 / 4;
+					scaledTextureHeight = s;
+					break;
+				default:
+					lp = new FrameLayout.LayoutParams(s, l * 3 / 4);
+					lp.setMargins(0, mTopMargin, 0, mBottomMargin);
+					scaledTextureWidth = s;
+					scaledTextureHeight = l * 3 / 4;
+					break;
+			}
+		} else {
+			float width = mMaxPreviewWidth, height = mMaxPreviewHeight;
+			if (width == 0 || height == 0) return;
+			if(mScreenRatio == CameraUtil.RATIO_4_3)
+				height -=  (mTopMargin + mBottomMargin);
+			if (mOrientationResize) {
+				scaledTextureWidth = height * mAspectRatio;
+				if (scaledTextureWidth > width) {
+					scaledTextureWidth = width;
+					scaledTextureHeight = scaledTextureWidth / mAspectRatio;
+				} else {
+					scaledTextureHeight = height;
+				}
+			} else {
+				if (width > height) {
+					if(Math.max(width, height * mAspectRatio) > width) {
+						scaledTextureWidth = width;
+						scaledTextureHeight = width / mAspectRatio;
+					} else {
+						scaledTextureWidth = height * mAspectRatio;
+						scaledTextureHeight = height;
+					}
+				} else {
+					if(Math.max(height, width * mAspectRatio) > height) {
+						scaledTextureWidth = height / mAspectRatio;
+						scaledTextureHeight = height;
+					} else {
+						scaledTextureWidth = width;
+						scaledTextureHeight = width * mAspectRatio;
+					}
+				}
+			}
+
+			Log.v(TAG, "setTransformMatrix: scaledTextureWidth = " + scaledTextureWidth
+					+ ", scaledTextureHeight = " + scaledTextureHeight);
+			if (((rotation == 0 || rotation == 180) && scaledTextureWidth > scaledTextureHeight)
+					|| ((rotation == 90 || rotation == 270)
+						&& scaledTextureWidth < scaledTextureHeight)) {
+				lp = new FrameLayout.LayoutParams((int) scaledTextureHeight,
+						(int) scaledTextureWidth, Gravity.CENTER);
+			} else {
+				lp = new FrameLayout.LayoutParams((int) scaledTextureWidth,
+						(int) scaledTextureHeight, Gravity.CENTER);
+			}
+			if(mScreenRatio == CameraUtil.RATIO_4_3) {
+				lp.gravity = Gravity.CENTER_HORIZONTAL | Gravity.TOP;
+				lp.setMargins(0, mTopMargin, 0, mBottomMargin);
+			}
+		}
+
+		if (mSurfaceTextureUncroppedWidth != scaledTextureWidth ||
+				mSurfaceTextureUncroppedHeight != scaledTextureHeight) {
+			mSurfaceTextureUncroppedWidth = scaledTextureWidth;
+			mSurfaceTextureUncroppedHeight = scaledTextureHeight;
+			if (mSurfaceTextureSizeListener != null) {
+				mSurfaceTextureSizeListener.onSurfaceTextureSizeChanged(
+						(int) mSurfaceTextureUncroppedWidth,
+						(int) mSurfaceTextureUncroppedHeight);
+				Log.i(TAG, "photoui ppt camera, mSurfaceTextureUncroppedWidth=" + mSurfaceTextureUncroppedWidth
+						+ "mSurfaceTextureUncroppedHeight=" + mSurfaceTextureUncroppedHeight);
+			}
+		}
+
+		mSurfaceView.setLayoutParams(lp);
+		mRootView.requestLayout();
+		if (mFaceView != null) {
+			mFaceView.setLayoutParams(lp);
+		}
+		mIsLayoutInitializedAlready = true;
+	}
+*/
 	
 	@Override
 	  public void surfaceCreated(SurfaceHolder holder) {
@@ -497,47 +657,8 @@ public class  CameraImpl implements MediaRecorder.OnErrorListener, SurfaceHolder
     public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
         if(mCamera != null)
         {
-	        mCamera.setPreviewCallback(new Camera.PreviewCallback(){
-				public void onPreviewFrame(byte[] data, Camera camera) {
-					 Size size = camera.getParameters().getPreviewSize();		   
-					 try{
-						 Log.e("camera", "panpan test, in onPreviewFrame, size: " + size.width + ", " + size.height);
-						 YuvImage image = new YuvImage(data, ImageFormat.NV21, size.width, size.height, null);	
-						 if(image!=null){  
-								ByteArrayOutputStream stream = new ByteArrayOutputStream();  
-								image.compressToJpeg(new Rect(0, 0, size.width, size.height), 80, stream); 
-	                            BitmapFactory.Options newOpts = new BitmapFactory.Options(); 
-								newOpts.inSampleSize = 1;
-							   final Bitmap bmp = BitmapFactory.decodeByteArray(stream.toByteArray(), 0, stream.size(), newOpts);
-								//**********************
-								//因为图片会放生旋转，因此要对图片进行旋转到和手机在一个方向上
-								Runnable runnable1 = new Runnable() {
-					                public void run() {
-					                    //rotateMyBitmap(bmp);
-					                }
-					            };
-								  
-								//**********************************
-								Runnable runnable2 = new Runnable() {
-					                public void run() {
-										if((i++)%20 == 0) {
-                                            //saveBmp(bmp);
-                                        }
-					                }
-					            };
-									
-								runnable1.run();
-								new Thread(runnable2).start();
-	                             
-							 stream.close();  
-						}  
-					 }catch(Exception ex){	
-					  Log.e("Sys","Error:"+ex.getMessage());  
-				  }  
-				}	
-			});
+	        
         }
-
     } 
 
 
@@ -567,5 +688,74 @@ public class  CameraImpl implements MediaRecorder.OnErrorListener, SurfaceHolder
         void onRecordFinish();
     }
 
+
+    public void openFace(CameraFaceDetectionCallback c)
+    {
+        mCallback =  c;
+        setFaceDetectionListener(this);
+    }
+	
+    private void setFaceDetectionListener(FaceDetectionListener listener) {
+            mCamera.setFaceDetectionListener(listener);
+			mCamera.startFaceDetection();
+    }
+
+
+	@Override
+    public void onFaceDetection(
+            final Camera.Face[] faces, Camera camera) {
+        final android.hardware.Camera currentCamera = mCamera;
+        Log.i(TAG, "cameraimpl ppt, in onFaceDetection, yes");
+        mMainHandler_ui.post(new Runnable() {
+            @Override
+            public void run() {
+                if ((currentCamera != null) && currentCamera.equals(mCamera)) {
+                    mCallback.onFaceDetection(faces);
+                }
+            }
+        });
+    }
+
+	private class CameraHandler extends Handler {
+	    CameraHandler(Looper looper) {
+            super(looper);
+        }
+
+		private void startFaceDetection() {
+            mCamera.startFaceDetection();
+        }
+
+        private void stopFaceDetection() {
+            mCamera.stopFaceDetection();
+        }
+
+		public void handleMessage(final Message msg) {
+		    try {
+                switch (msg.what) {
+					case 1:
+						
+						break;
+					default:
+						Log.i(TAG, "cameraimpl ppt, in handleMessage, error message.");
+                }
+		    }catch (RuntimeException e) {
+		    }
+		}
+	}
+
+    /**
+     * An interface which wraps
+     * {@link android.hardware.Camera.FaceDetectionListener}.
+     */
+    public interface CameraFaceDetectionCallback {
+        /**
+         * Callback for face detection.
+         *
+         * @param faces   Recognized face in the preview.
+         * @param camera  The camera which the preview image comes from.
+         */
+        public void onFaceDetection(Camera.Face[] faces);
+		public void processFace(byte[] data, Camera camera);
+    }
 }
 

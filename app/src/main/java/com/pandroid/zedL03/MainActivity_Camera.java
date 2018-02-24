@@ -448,7 +448,8 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
 		                            mOnRecordFinishListener.onRecordFinish();
 		                        }
                                 //stop();
-								
+								stopRecord();
+								startRecord(recordFinishListener);
                             }
                         });
 						//Looper.prepare();
@@ -456,8 +457,6 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
                         
 					    //Looper.loop();
 					    
-					   stopRecord();
-					   startRecord(recordFinishListener);
 
                     }
                 }
@@ -679,9 +678,9 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
 				public void onPreviewFrame(byte[] data, Camera camera) {
 					 Size size = camera.getParameters().getPreviewSize();		   
 					 try{
-						 Log.e("camera", "panpan test, in onPreviewFrame, size: " + size.width + ", " + size.height);
+						 //Log.e("camera", "face ppt, in onPreviewFrame, size: " + size.width + ", " + size.height);
 						 YuvImage image = new YuvImage(data, ImageFormat.NV21, size.width, size.height, null);	
-						 if(image!=null){  
+						 if(image!=null && (i++)%20 == 0){  
 								ByteArrayOutputStream stream = new ByteArrayOutputStream();  
 								image.compressToJpeg(new Rect(0, 0, size.width, size.height), 80, stream); 
 	                            BitmapFactory.Options newOpts = new BitmapFactory.Options(); 
@@ -698,9 +697,7 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
 								//**********************************
 								Runnable runnable2 = new Runnable() {
 					                public void run() {
-										if((i++)%20 == 0)
-					                        saveBmp(bmp);
-										
+					                        //saveBmp(bmp);
 					                }
 					            };
 									
@@ -817,6 +814,9 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
     }  
 	
 	public void rotateMyBitmap(Bitmap bmp){
+
+        imageView.setVisibility(View.VISIBLE);
+	  
 	  //*****旋转一下
 		Matrix matrix = new Matrix();
 		 matrix.postRotate(270);

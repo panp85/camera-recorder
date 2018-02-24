@@ -36,10 +36,6 @@
         "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\layout\\notification_template_media_custom.xml"
     },
     {
-        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_custom_big.xml",
-        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\layout\\notification_template_custom_big.xml"
-    },
-    {
         "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_select_dialog_material.xml",
         "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\layout\\abc_select_dialog_material.xml"
     },
@@ -144,10 +140,6 @@
         "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\layout\\select_dialog_item_material.xml"
     },
     {
-        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action.xml",
-        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\layout\\notification_action.xml"
-    },
-    {
         "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\layout\\widget_layout.xml",
         "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\layout\\widget_layout.xml"
     },
@@ -194,14 +186,6 @@
     {
         "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_list_menu_item_radio.xml",
         "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\layout\\abc_list_menu_item_radio.xml"
-    },
-    {
-        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_icon_group.xml",
-        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\layout\\notification_template_icon_group.xml"
-    },
-    {
-        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
-        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\layout\\notification_action_tombstone.xml"
     },
     {
         "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\layout\\ftp_file_item.xml",

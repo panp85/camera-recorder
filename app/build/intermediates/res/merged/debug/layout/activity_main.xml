@@ -56,11 +56,50 @@
     <SurfaceView
         android:id="@+id/preview_content"
         android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_height="178dp"
         android:elevation="1dp"
         android:visibility="visible"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
+
+    <com.pandroid.camera.FaceView
+        android:id="@+id/face_paint"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="200dp" />
+
+    <FrameLayout
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true">
+
+        <ImageView
+            android:id="@+id/face_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+    <!--<com.pandroid.camera.FaceView-->
+        <!--android:id="@+id/face_paint"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:elevation="1dp"-->
+        <!--android:visibility="visible"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--android:background="@color/bisque"-->
+    <!--/>-->
+    <!--<SurfaceView-->
+        <!--android:id="@+id/preview_face"-->
+        <!--android:layout_width="100dp"-->
+        <!--android:layout_height="100dp"-->
+        <!--android:elevation="1dp"-->
+        <!--android:visibility="visible"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_centerHorizontal="true"-->
+        <!--/>-->
+
 
 </RelativeLayout>

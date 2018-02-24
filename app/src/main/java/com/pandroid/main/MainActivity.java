@@ -61,6 +61,9 @@ import java.util.TimerTask;
 import java.io.FileOutputStream;
 import java.io.FileNotFoundException;
 
+import android.view.LayoutInflater;
+
+
 import com.pandroid.R;
 //#define  FILE_SIZE (60*5)
 
@@ -110,6 +113,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 	private Context mAppContext;
 	private SharedPreferences mSharedPreferences;
 
+	View mRootView;
+
 
 	private boolean mHasCriticalPermissions;
 
@@ -117,12 +122,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+		
         checkPermissions();
 
         mAppContext = getApplicationContext();
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mAppContext);
 
         setContentView(R.layout.activity_main);
+		LayoutInflater inflater = getLayoutInflater();
+		mRootView = inflater.inflate(R.layout.activity_main, null, false);
         initView();
 
 		mSurfaceView = (SurfaceView)findViewById(R.id.preview_content);
@@ -253,10 +261,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.going:
                 Log.i(TAG, "app ppt, in onClick, going");
-				com.pandroid.camera.CameraImpl.instance(mAppContext).openCamera();
-                com.pandroid.camera.CameraImpl.instance(mAppContext).startRecord();
+				com.pandroid.camera.CameraImpl.instance(mAppContext).openCamera(new Handler(Looper.getMainLooper()));
+                com.pandroid.camera.FaceView faceview = (com.pandroid.camera.FaceView)findViewById(R.id.face_paint);
+				com.pandroid.camera.CameraImpl.instance(mAppContext).openFace(faceview);
+                //com.pandroid.camera.CameraImpl.instance(mAppContext).startRecord();
                 appBtn.setText("后台应用正在运行.....");
                 appBtn.setBackgroundColor(getResources().getColor(R.color.green));
+				mRootView.requestLayout();
                 break;
 
         }
