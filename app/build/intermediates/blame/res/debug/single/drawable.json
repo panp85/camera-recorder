@@ -40,16 +40,20 @@
         "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\drawable\\abc_ic_arrow_drop_right_black_24dp.xml"
     },
     {
-        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
-        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\drawable\\abc_item_background_holo_light.xml"
-    },
-    {
         "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_overflow_material.xml",
         "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\drawable\\abc_ic_menu_overflow_material.xml"
     },
     {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_item_background_holo_light.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\drawable\\abc_item_background_holo_light.xml"
+    },
+    {
         "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_material.xml",
         "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\drawable\\abc_ratingbar_material.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\drawable\\abc_cab_background_top_material.xml"
     },
     {
         "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_tab_indicator_material.xml",
@@ -58,10 +62,6 @@
     {
         "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_bg_low.xml",
         "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\drawable\\notification_bg_low.xml"
-    },
-    {
-        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_cab_background_top_material.xml",
-        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\drawable\\abc_cab_background_top_material.xml"
     },
     {
         "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_voice_search_api_material.xml",
@@ -140,12 +140,12 @@
         "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\drawable\\feature.jpg"
     },
     {
-        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",
-        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\drawable\\notification_icon_background.xml"
-    },
-    {
         "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_list_selector_background_transition_holo_light.xml",
         "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\drawable\\abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\notification_icon_background.xml",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\drawable\\notification_icon_background.xml"
     },
     {
         "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_check_material.xml",

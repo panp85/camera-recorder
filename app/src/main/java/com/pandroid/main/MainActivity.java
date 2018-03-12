@@ -1,6 +1,6 @@
 package com.pandroid.main;
 
-import com.android.zedL03.ZedTask;
+import com.pandroid.zedL03.ZedTask;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -25,7 +25,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ToggleButton;
 import android.widget.CompoundButton;
-
+import android.view.MenuItem;
 
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -49,6 +49,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.content.pm.PackageManager;
+import android.preference.ListPreference;
+import android.preference.Preference.OnPreferenceChangeListener;
 
 import com.dinuscxj.progressbar.CircleProgressBar;
 
@@ -63,12 +65,13 @@ import java.io.FileNotFoundException;
 
 import android.view.LayoutInflater;
 
-
+import com.pandroid.zedL03.FightListPreferenceActivity;
 import com.pandroid.R;
 //#define  FILE_SIZE (60*5)
 
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+public class MainActivity extends AppCompatActivity 
+    implements View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener{
 
 
     //存放照片的文件夹
@@ -108,7 +111,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private String dirname;
     private int i = 0;
 
-	private ZedTask zt;
+	private ZedTask mZedTask;
     private Thread mPoolThread;
 	private Context mAppContext;
 	private SharedPreferences mSharedPreferences;
@@ -135,6 +138,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 		mSurfaceView = (SurfaceView)findViewById(R.id.preview_content);
         com.pandroid.camera.CameraImpl.instance(mAppContext).setSurfaceView(mSurfaceView, this);
+		
+         Looper looper;
+		 looper = Looper.myLooper();
+	     mZedTask = new ZedTask(looper);
+		 mZedTask.start();
 
 /*
 		try {
@@ -143,7 +151,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return;
         }
         */
+        PreferenceManager.getDefaultSharedPreferences(mAppContext).registerOnSharedPreferenceChangeListener(this);	
+		
+
     }
+	 protected void onStart(Bundle savedInstanceState) {
+	     
+	 }
+	 
+	 @Override	
+	 protected void onResume() {  
+	   
+	   super.onResume();
+	 } 
+
+
+	 @Override	
+	 protected void onPause() {  
+	   PreferenceManager.getDefaultSharedPreferences(mAppContext).unregisterOnSharedPreferenceChangeListener(this);  
+	   super.onPause();  
+	 }	
 
 	 private boolean checkPermissions() {
         boolean requestPermission = false;
@@ -279,7 +306,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		getMenuInflater().inflate(R.menu.menu_setting, menu);
 		return true;
 	}
+	
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int id = item.getItemId();
+		if (id == R.id.menu_setting1) {
+			Intent i0 = new Intent(getApplicationContext(),FightListPreferenceActivity.class);
+			startActivityForResult(i0, 1000);
+			return true;
+		}
 
+		return super.onOptionsItemSelected(item);
+	}
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
@@ -290,5 +328,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 		return true;
 	}
 
+	public void onSharedPreferenceChanged(SharedPreferences         		sharedPreferences, String key) {
+	   Log.i(TAG, "ppt SETTING CHANGED: key = " + key);
+	   if ("selected_resolution_option".equals(key) || "selected_wifi_option".equals(key)) {
+	       
+	   }
+	}
 }
 

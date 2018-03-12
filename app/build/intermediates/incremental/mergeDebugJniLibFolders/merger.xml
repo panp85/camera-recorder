@@ -1,2 +1,2 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merger version="3"><dataSet config="main"><source path="C:\android_projects\android-CameraVideo\app\src\main\jniLibs"/></dataSet><dataSet config="debug"><source path="C:\android_projects\android-CameraVideo\app\src\debug\jniLibs"/></dataSet></merger>
+<merger version="3"><dataSet config="main"><source path="C:\android_projects\android-CameraVideo\app\src\main\jniLibs"/><source path="C:\android_projects\android-CameraVideo\app\libs\armeabi-v7a"><file name="libzedJni.so" path="C:\android_projects\android-CameraVideo\app\libs\armeabi-v7a\libzedJni.so"/></source></dataSet><dataSet config="debug"><source path="C:\android_projects\android-CameraVideo\app\src\debug\jniLibs"/></dataSet></merger>

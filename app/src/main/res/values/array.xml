@@ -5,7 +5,17 @@
         <item>720x640</item>
         <item>1280x720</item>
     </string-array>
+    <string-array name="wifi_options">
+        <item>wifi</item>
+        <item>wifi ap</item>
+        <item>disable</item>
+    </string-array>
     <string-array name="resolution_options_values">
+        <item>0</item>
+        <item>1</item>
+        <item>2</item>
+    </string-array>
+    <string-array name="wifi_options_values">
         <item>0</item>
         <item>1</item>
         <item>2</item>

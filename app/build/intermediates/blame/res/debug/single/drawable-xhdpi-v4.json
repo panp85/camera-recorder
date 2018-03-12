@@ -60,12 +60,12 @@
         "source": "C:\\Users\\pc\\.android\\build-cache\\d273eecdc3fe80c60b1688bd10c94f684e6a0a85\\output\\res\\drawable-xhdpi-v4\\design_ic_visibility_off.png"
     },
     {
-        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_star_black_48dp.png",
-        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\drawable-xhdpi-v4\\abc_ic_star_black_48dp.png"
-    },
-    {
         "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png",
         "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
+    },
+    {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_star_black_48dp.png",
+        "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\drawable-xhdpi-v4\\abc_ic_star_black_48dp.png"
     },
     {
         "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png",

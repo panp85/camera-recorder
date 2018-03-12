@@ -35,6 +35,8 @@ public final class R {
         public static final int pref_list_themes_values=0x7f0e0002;
         public static final int resolution_options=0x7f0e0003;
         public static final int resolution_options_values=0x7f0e0004;
+        public static final int wifi_options=0x7f0e0005;
+        public static final int wifi_options_values=0x7f0e0006;
     }
     public static final class attr {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -4249,7 +4251,7 @@ containing a value of this type.
     }
     public static final class xml {
         public static final int preferences=0x7f070000;
-        public static final int resolution_options=0x7f070001;
+        public static final int system_options=0x7f070001;
         public static final int widget_info=0x7f070002;
     }
     public static final class styleable {

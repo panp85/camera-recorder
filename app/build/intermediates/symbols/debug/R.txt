@@ -20,6 +20,8 @@ int array pref_list_themes 0x7f0e0001
 int array pref_list_themes_values 0x7f0e0002
 int array resolution_options 0x7f0e0003
 int array resolution_options_values 0x7f0e0004
+int array wifi_options 0x7f0e0005
+int array wifi_options_values 0x7f0e0006
 int attr actionBarDivider 0x7f010074
 int attr actionBarItemBackground 0x7f010075
 int attr actionBarPopupTheme 0x7f01006e
@@ -2366,5 +2368,5 @@ int styleable ViewStubCompat_android_id 0
 int styleable ViewStubCompat_android_inflatedId 2
 int styleable ViewStubCompat_android_layout 1
 int xml preferences 0x7f070000
-int xml resolution_options 0x7f070001
+int xml system_options 0x7f070001
 int xml widget_info 0x7f070002

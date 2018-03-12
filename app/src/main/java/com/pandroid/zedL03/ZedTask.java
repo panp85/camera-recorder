@@ -1,4 +1,4 @@
-package com.android.zedL03;
+package com.pandroid.zedL03;
 
 //import android.os.ServiceManager;
 import android.os.Handler;
@@ -11,6 +11,7 @@ import android.os.IBinder;
 
 import android.os.RemoteException;
 
+
 /**
  * Created by pc on 2017/11/6.
  */
@@ -20,8 +21,10 @@ public class ZedTask extends Handler {
 	private static final java.lang.String DESCRIPTOR = "zedTask";
 	private static final int GET_APP_MESSAGE = 1;
 	private static final int SET_VIDEO_Q = 0x1000;
-    public static native void native_connect(Object wt);
+    public native void native_connect(Object wt);
 	public long mNativeZcb;
+
+    
 
 	void message_callback(Object ref, String cmd)
 	{
@@ -34,10 +37,12 @@ public class ZedTask extends Handler {
 	
     public void start()
     {
- /*
-        System.loadLibrary("zedjni");
-        native_connect(new WeakReference<ZedTask>(this));
- */
+        {
+            //System.loadLibrary("zedJni");
+        }
+        Log.i(TAG, "zedTask ppt, in start.\n");
+        
+        //native_connect(new WeakReference<ZedTask>(this));
     }
 
     public void process(Parcel _reply)

@@ -1,6 +1,6 @@
 package com.pandroid.zedL03;
 
-import com.android.zedL03.ZedTask;
+import com.pandroid.zedL03.ZedTask;
 
 import android.Manifest;
 import android.content.Intent;
@@ -66,7 +66,7 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
 
     //存放照片的文件夹
     public final static String  BASE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/video/";
-	public final static String TAG = "ZED_APP";
+	public final static String TAG = "Camera";
 	private int FILE_SIZE = (10);
 
     private SurfaceView mSurfaceView;
