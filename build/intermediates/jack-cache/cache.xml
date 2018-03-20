@@ -74,6 +74,12 @@
         <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-69b32b94d6800ed6822692aa230461e75e1ccc57.jar" />
     </item>
     <item
+        jar="C:\Users\pc\AppData\Local\Android\Sdk\platforms\android-24\optional\org.apache.http.legacy.jar"
+        revision="25.0.2"
+        sha1="fb7023e781abb70ed1b0442eb611fbed295cae84">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackRuntimeLibraries\debug\jars\8000\40\org.apache.http.legacy-3d5f5ad5da33ee25dc0c08a51d56c3ebfc4fe7b3.jar" />
+    </item>
+    <item
         jar="C:\Users\pc\.android\build-cache\c63aee00157ff8a219ac544a098818bcc955f3b7\output\jars\classes.jar"
         revision="25.0.2"
         sha1="d29e451fd5bcc265989bf80afd4f149d95d72e7d">
@@ -84,6 +90,12 @@
         revision="25.0.2"
         sha1="812a8c21e1686cb8e55eebfb814c568b0c97e359">
         <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\classes-f4a2cfe62f3e68979d4ca555b5f36cb7538145ec.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\AppData\Local\Android\Sdk\platforms\android-24\android.jar"
+        revision="25.0.2"
+        sha1="d49cc0972df7adf495d3ad3d0cf71c0ec517ace4">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackRuntimeLibraries\debug\jars\8000\40\android-6445e49a8820c45090f42ae56e7e5396bfdf3f49.jar" />
     </item>
     <item
         jar="C:\Users\pc\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.2\constraint-layout-solver-1.0.2.jar"
@@ -102,6 +114,12 @@
         revision="25.0.2"
         sha1="afba4942caaeaf46aab0b976afd57cc7c181467e">
         <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackPackagedLibraries\debug\jars\8000\1f\jcip-annotations-1.0-0e553c4a77806e156d3d4388c6ccc3a332a7275e.jar" />
+    </item>
+    <item
+        jar="C:\Users\pc\.gradle\caches\modules-2\files-2.1\org.projectlombok\lombok\1.16.12\64b2d2e8734b54ddba60a69df68a6dac627366c8\lombok-1.16.12.jar"
+        revision="25.0.2"
+        sha1="64b2d2e8734b54ddba60a69df68a6dac627366c8">
+        <dex dex="C:\android_projects\android-CameraVideo\app\build\intermediates\transforms\preJackRuntimeLibraries\debug\jars\8000\40\lombok-1.16.12-6fde2078182fa578439db00ed0b3edd091d11e76.jar" />
     </item>
     <item
         jar="C:\Users\pc\.android\build-cache\4b4c79f168b50b974c81c8998ed98afc1c8898f4\output\jars\classes.jar"

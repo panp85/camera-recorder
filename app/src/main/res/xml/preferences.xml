@@ -69,7 +69,7 @@ along with SwiFTP.  If not, see <http://www.gnu.org/licenses/>.
             </PreferenceCategory>
         </PreferenceScreen>
 
-        <com.pandroid.zedL03.android.DynamicMultiSelectListPreference
+        <com.pandroid.message.android.DynamicMultiSelectListPreference
             android:key="autoconnect_preference"
             android:title="@string/autoconnect_label"
             android:summary="@string/autoconnect_summary"

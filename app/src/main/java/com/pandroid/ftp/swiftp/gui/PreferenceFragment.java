@@ -55,7 +55,7 @@ import java.io.File;
 import java.net.InetAddress;
 import java.util.List;
 
-import com.pandroid.zedL03.android.DynamicMultiSelectListPreference;
+import com.pandroid.message.android.DynamicMultiSelectListPreference;
 import com.pandroid.ftp.swiftp.FsService;
 import com.pandroid.ftp.swiftp.FsSettings;
 import com.pandroid.R;

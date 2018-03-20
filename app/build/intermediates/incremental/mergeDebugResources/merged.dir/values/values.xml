@@ -21,6 +21,10 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+    <string-array name="sex">
+        <item>Mr</item>
+        <item>Miss</item>
+    </string-array>
     <string-array name="wifi_options">
         <item>wifi</item>
         <item>wifi ap</item>
@@ -917,6 +921,7 @@
     <string name="character_counter_pattern" translatable="false">%1$d / %2$d</string>
     <string name="chroot_default" translatable="false"/>
     <string name="chroot_label">Stay in folder</string>
+    <string name="colon">:</string>
     <string name="com_twofortyfouram_locale_sdk_client_app_store_deep_link_format" ns1:ignore="UnusedResources" translatable="false">market://details?id=%1$s&amp;referrer=utm_source=%2$s&amp;utm_medium=app&amp;utm_campaign=plugin</string>
     <string name="com_twofortyfouram_log_tag" ns1:ignore="ResourceName"/>
     <string name="dark_theme">Dark Theme</string>
@@ -929,8 +934,10 @@
     <string name="demo_while_paid_dialog_title">
         Demo started while paid version is installed
     </string>
+    <string name="empty">--</string>
     <string name="extra_label">Extra</string>
     <string name="feedback">Send feedback</string>
+    <string name="hello">Hello World, MySocketActivity!</string>
     <string name="hello_world">Hello world!</string>
     <string name="help_dlg_message">\
 Thanks for using FTP Server (SwiFTP)! Here are some brief usage instructions. More
@@ -971,6 +978,9 @@ https://github.com/ppareit/swiftp/issues .\n\n
     </string>
     <string name="menu_settings">Settings</string>
     <string name="mixed_theme">Mixed Theme</string>
+    <string name="name">姓名</string>
+    <string name="nameNull">姓名不能为空</string>
+    <string name="nameStr">Name</string>
     <string name="notif_settings_text">Settings</string>
     <string name="notification_server_starting">Starting at %s</string>
     <string name="notification_stop_text">Stop server</string>
@@ -1000,6 +1010,7 @@ https://github.com/ppareit/swiftp/issues .\n\n
         you just won\'t be able to automatically connect.
     </string>
     <string name="request_coarse_location_dlg_title">Request permission for location</string>
+    <string name="result">Result</string>
     <string name="running_label">FTP Server</string>
     <string name="running_summary_failed">
         Failed to start the FTP server, not connected to the local network (wifi or ethernet)?
@@ -1011,7 +1022,10 @@ https://github.com/ppareit/swiftp/issues .\n\n
     <string name="running_summary_stopped">Toggle the state of the ftp server</string>
     <string name="search_menu_title">Search</string>
     <string name="select">Select</string>
+    <string name="send">发送</string>
     <string name="settings_label">Settings</string>
+    <string name="sex">性别</string>
+    <string name="sexStr">Sex</string>
     <string name="show_password_default" translatable="false">false</string>
     <string name="show_password_label">Display password</string>
     <string name="status_bar_notification_info_overflow">999+</string>

@@ -176,6 +176,10 @@
         "source": "C:\\Users\\pc\\.android\\build-cache\\2379602860ad4d1548c792e581bdb00b115ad178\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
     },
     {
+        "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\layout\\main_socket.xml",
+        "source": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\res\\layout\\main_socket.xml"
+    },
+    {
         "merged": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_sheet_dialog.xml",
         "source": "C:\\Users\\pc\\.android\\build-cache\\d273eecdc3fe80c60b1688bd10c94f684e6a0a85\\output\\res\\layout\\design_bottom_sheet_dialog.xml"
     },

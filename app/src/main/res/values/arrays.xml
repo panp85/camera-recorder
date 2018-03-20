@@ -11,4 +11,10 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+
+
+    <string-array name="sex">
+        <item>Mr</item>
+        <item>Miss</item>
+    </string-array>
 </resources>

@@ -11,6 +11,6 @@ public final class R {
         public static final int com_twofortyfouram_log_is_debug = 0x7f0c0005;
     }
     public static final class string {
-        public static final int com_twofortyfouram_log_tag = 0x7f080041;
+        public static final int com_twofortyfouram_log_tag = 0x7f080042;
     }
 }

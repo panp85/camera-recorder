@@ -1,4 +1,4 @@
-package com.android.zedL03.swiftp.gui;
+package com.android.message.swiftp.gui;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;

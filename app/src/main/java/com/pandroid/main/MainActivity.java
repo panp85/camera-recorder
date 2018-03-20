@@ -1,6 +1,6 @@
 package com.pandroid.main;
 
-import com.pandroid.zedL03.ZedTask;
+import com.pandroid.message.MessageTask;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -65,7 +65,7 @@ import java.io.FileNotFoundException;
 
 import android.view.LayoutInflater;
 
-import com.pandroid.zedL03.FightListPreferenceActivity;
+import com.pandroid.message.FightListPreferenceActivity;
 import com.pandroid.R;
 //#define  FILE_SIZE (60*5)
 
@@ -111,7 +111,7 @@ public class MainActivity extends AppCompatActivity
     private String dirname;
     private int i = 0;
 
-	private ZedTask mZedTask;
+	private MessageTask mMessageTask;
     private Thread mPoolThread;
 	private Context mAppContext;
 	private SharedPreferences mSharedPreferences;
@@ -139,10 +139,10 @@ public class MainActivity extends AppCompatActivity
 		mSurfaceView = (SurfaceView)findViewById(R.id.preview_content);
         com.pandroid.camera.CameraImpl.instance(mAppContext).setSurfaceView(mSurfaceView, this);
 		
-         Looper looper;
-		 looper = Looper.myLooper();
-	     mZedTask = new ZedTask(looper);
-		 mZedTask.start();
+         
+	     mMessageTask = new MessageTask("messageTask");
+		 mMessageTask.start();
+         mMessageTask.setup_message();
 
 /*
 		try {
@@ -168,7 +168,7 @@ public class MainActivity extends AppCompatActivity
 
 	 @Override	
 	 protected void onPause() {  
-	   PreferenceManager.getDefaultSharedPreferences(mAppContext).unregisterOnSharedPreferenceChangeListener(this);  
+	   PreferenceManager.getDefaultSharedPreferences(mAppContext).unregisterOnSharedPreferenceChangeListener(this);
 	   super.onPause();  
 	 }	
 
@@ -276,10 +276,10 @@ public class MainActivity extends AppCompatActivity
         switch (v.getId()){
             case R.id.button_camera:
                 Log.i(TAG, "app ppt, in onClick, button_camera");
-               // Intent intent = this.getPackageManager().("com.pandroid.zedL03.MainActivity_Camera");
+               // Intent intent = this.getPackageManager().("com.pandroid.message.MainActivity_Camera");
                 Intent intent=new Intent();
                 if(intent!=null)   {
-                    intent.setClass(this, com.pandroid.zedL03.MainActivity_Camera.class); //设置跳转的Activity
+                    intent.setClass(this, com.pandroid.message.MainActivity_Camera.class); //设置跳转的Activity
                     startActivity(intent);
                 }
                 else	{
@@ -334,5 +334,22 @@ public class MainActivity extends AppCompatActivity
 	       
 	   }
 	}
+
+    protected void onStop() {
+        Log.i(TAG, "pandroid ppt, in OnStop, mMessageTask = " + mMessageTask);
+        if (mMessageTask != null) {
+            mMessageTask.closeSocket();
+        }
+        super.onStop();
+    }
+
+    protected void onDestroy() {
+        Log.i(TAG, "pandroid ppt, in onDestroy, mMessageTask = " + mMessageTask);
+        if (mMessageTask != null) {
+            mMessageTask.closeSocket();
+        }
+
+        super.onDestroy();
+    }
 }
 
