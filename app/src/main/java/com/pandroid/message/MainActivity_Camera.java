@@ -146,7 +146,7 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
             public void run()  
             {
 
-                zt = new MessageTask("camera");
+                zt = new MessageTask(mAppContext, "camera");
 				zt.start();
                 Looper.loop();  
             }  

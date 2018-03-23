@@ -17,4 +17,10 @@
         android:entryValues="@array/wifi_options_values"
         android:dialogTitle="选择wifi功能"
         android:defaultValue="1"/>
+    <EditTextPreference
+        android:key="server_address"
+        android:selectAllOnFocus="true"
+        android:singleLine="false"
+        android:title="服务器地址"
+        android:visibility="visible" />
 </PreferenceScreen>

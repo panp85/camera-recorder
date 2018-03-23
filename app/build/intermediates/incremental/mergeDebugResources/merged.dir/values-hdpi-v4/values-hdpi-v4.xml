@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:ns1="http://schemas.android.com/tools">
-    <integer name="com_twofortyfouram_locale_sdk_client_maximum_blurb_length" ns1:ignore="UnusedResources">60</integer>
-    <style name="Base.Widget.AppCompat.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle.Common">
-          <item name="barLength">18.66dp</item>
-          <item name="gapBetweenBars">3.33dp</item>
-          <item name="drawableSize">24dp</item>
-     </style>
-</resources>

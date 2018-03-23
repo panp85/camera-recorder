@@ -1,6 +1,8 @@
 package com.pandroid.message;
 
 //import android.os.ServiceManager;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
@@ -10,26 +12,33 @@ import java.util.Arrays;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.os.IBinder;
 
 import android.os.RemoteException;
 import android.os.HandlerThread;
+import android.view.View;
 
 import com.pandroid.socket.SocketClient;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static android.R.id.input;
+
 /**
  * Created by pp on 2018/3/6.
  */
 
-public class MessageTask extends HandlerThread {
+public class MessageTask extends HandlerThread
+        implements SharedPreferences.OnSharedPreferenceChangeListener{
 	private static final String TAG = "Message Task";
 	private static final int LOCAL_CLIENT_TYPE_APPMAIN = 0;
 
-    private static final int SEND_SOCKET_MESSAGE = 0;
+    private static final int SEND_SOCKET_MESSAGE_LOCAL = 0;
+
+	private static final int SEND_SOCKET_MESSAGE_REMOTE = 100;
     private static final int HEART_EVENT = 1;
 
 	private static final int MESSAGE_TYPE = 0;
@@ -41,26 +50,46 @@ public class MessageTask extends HandlerThread {
  //   public native void native_connect(Object wt);
 	public long mNativeZcb;
 	private Handler mThreadHandler;
-	private SocketClient mSocketClient = null;
+	private SocketClient mSocketClient_local = null;
+	private SocketClient mSocketClient_remote = null;
 
     private Timer timer;
     private TimerTask task;
+    Context context;
+
+    public MessageTask(Context context, String name) {
+        super(name);
+        this.context = context;
+        PreferenceManager.getDefaultSharedPreferences(context).registerOnSharedPreferenceChangeListener(this);
+        //init();
+    }
+    private void start_RemoteClinet(){
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
+
+        String server = sp.getString("server_address", "192.168.1.1:12345");
+        Log.i(TAG, "socket ppt, in setup_message, server: " + server);
+        String[] elements = server.split(":");
+        mSocketClient_remote = new SocketClient(elements[0], Integer.parseInt(elements[1]));
+    }
 
 	public void setup_message()
 	{
-		mSocketClient = new SocketClient();
+		mSocketClient_local = new SocketClient();
+        start_RemoteClinet();
 
 		mThreadHandler = new Handler(getLooper())
 		{
-		    
 			@Override
 			public void handleMessage(Message msg)
 			{
 				Log.i("MessageTask", "heart ppt, msg.what: " + msg.what);
 
                 switch(msg.what){
-                    case SEND_SOCKET_MESSAGE:
-                        mSocketClient.sendMsg(new String((byte[]) msg.obj));
+                    case SEND_SOCKET_MESSAGE_LOCAL:
+                        mSocketClient_local.sendMsg(new String((byte[]) msg.obj));
+                        break;
+					case SEND_SOCKET_MESSAGE_REMOTE:
+                        mSocketClient_remote.sendMsg(new String((byte[]) msg.obj));
                         break;
 /*
                     case HEART_EVENT:
@@ -99,7 +128,8 @@ public class MessageTask extends HandlerThread {
                     throw new RuntimeException(ex);
                 }
                 //mThreadHandler.sendMessage(encode(message_json));
-                mSocketClient.sendMsg(new String((byte[])encode(message_json).obj));
+                mSocketClient_local.sendMsg(new String((byte[])encode(message_json).obj));
+				mSocketClient_remote.sendMsg(new String((byte[])encode(message_json).obj));
             }
         };
         timer = new Timer();
@@ -114,8 +144,9 @@ public class MessageTask extends HandlerThread {
             message_json.put("messagetype", "setapptype");
             message_json.put("apptype", LOCAL_CLIENT_TYPE_APPMAIN);
             Message message = encode(message_json);
+			message.what = SEND_SOCKET_MESSAGE_LOCAL;
             mThreadHandler.sendMessage(message);
-
+			message.what = SEND_SOCKET_MESSAGE_REMOTE;
 
 	    }catch (JSONException ex) {
 			throw new RuntimeException(ex);
@@ -137,8 +168,18 @@ public class MessageTask extends HandlerThread {
 
         Message message = Message.obtain();
         message.obj = buffer;
-        message.what = SEND_SOCKET_MESSAGE;
+        
         return message;
+    }
+
+    public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        Log.i(TAG, "ppt SETTING CHANGED: key = " + key);
+        if ("server_address".equals(key) ) {
+            if(mSocketClient_remote != null) {
+                mSocketClient_remote.closeSocket();
+            }
+            start_RemoteClinet();
+        }
     }
 /*
 	void message_callback(Object ref, String cmd)
@@ -200,16 +241,15 @@ public class MessageTask extends HandlerThread {
 	*/
     public void closeSocket()
     {
-        if (mSocketClient != null) {
-            mSocketClient.closeSocket();
+        if (mSocketClient_local != null) {
+            mSocketClient_local.closeSocket();
         }
-
+        if (mSocketClient_remote != null) {
+            mSocketClient_remote.closeSocket();
+        }
     }
 
- 	public MessageTask(String name) {
-		super(name);
-        //init();
-    }
+
 
 };
 

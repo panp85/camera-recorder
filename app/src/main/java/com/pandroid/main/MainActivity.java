@@ -140,7 +140,7 @@ public class MainActivity extends AppCompatActivity
         com.pandroid.camera.CameraImpl.instance(mAppContext).setSurfaceView(mSurfaceView, this);
 		
          
-	     mMessageTask = new MessageTask("messageTask");
+	     mMessageTask = new MessageTask(mAppContext, "messageTask");
 		 mMessageTask.start();
          mMessageTask.setup_message();
 
@@ -338,7 +338,7 @@ public class MainActivity extends AppCompatActivity
     protected void onStop() {
         Log.i(TAG, "pandroid ppt, in OnStop, mMessageTask = " + mMessageTask);
         if (mMessageTask != null) {
-            mMessageTask.closeSocket();
+    //        mMessageTask.closeSocket();
         }
         super.onStop();
     }
