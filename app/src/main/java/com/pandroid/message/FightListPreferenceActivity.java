@@ -216,7 +216,6 @@ public class FightListPreferenceActivity extends PreferenceActivity implements P
 			{
 			    Log.i(TAG, "ppt SETTING, resolution = " + (String)newValue);
 			}
-
 			else if(preference == lp_otg)
 			{
 			    Log.i(TAG, "otg = " + (String)newValue);

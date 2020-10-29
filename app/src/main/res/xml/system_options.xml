@@ -19,6 +19,12 @@
         android:dialogTitle="选择wifi功能"
         android:defaultValue="1"
         android:visibility="gone" />
+
+    <ListPreference android:key="device_serial"
+        android:title="设备序列号"
+        android:selectAllOnFocus="true"
+        android:summary=""/>
+
     <EditTextPreference
         android:key="server_address"
         android:selectAllOnFocus="true"
