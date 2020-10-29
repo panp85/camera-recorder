@@ -19,7 +19,9 @@
         android:background="@drawable/border_line_while"
         android:gravity="center"
         android:text="打开camera activity"
-        android:visibility="visible" />
+        android:visibility="gone"/>
+        <!--android:visibility="visible"-->
+
 
     <ToggleButton
         android:id="@+id/ftp_server_switch"
@@ -51,7 +53,7 @@
         android:background="@drawable/border_line_while"
         android:gravity="center"
         android:text="打开后台业务"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/lc"
@@ -65,21 +67,7 @@
         android:background="@drawable/border_line_while"
         android:gravity="center"
         android:text="打开路测app"
-        android:visibility="visible" />
-    <!--Button
-        android:id="@+id/lc"
-        style="@android:style/Widget.Button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignStart="@+id/going"
-        android:layout_alignTop="@+id/face_paint"
-        android:layout_below="@+id/going"
-        android:layout_marginTop="5dp"
-        android:layout_weight="1"
-        android:background="@drawable/border_line_while"
-        android:gravity="center"
-        android:text="打开路测app"
-        android:visibility="visible" /-->
+        android:visibility="gone" />
     <Button
         android:id="@+id/cell"
         style="@android:style/Widget.Button"
@@ -93,7 +81,7 @@
         android:background="@drawable/border_line_while"
         android:gravity="center"
         android:text="模拟基站"
-        android:visibility="visible" />
+        android:visibility="gone" />
 
     <Button
         android:id="@+id/spr"
@@ -104,7 +92,7 @@
         android:background="@drawable/border_line_while"
         android:gravity="center"
         android:text="打开展讯测试app"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_above="@+id/preview_content"
         android:layout_alignParentEnd="true" />
 
@@ -113,7 +101,7 @@
         android:layout_width="100dp"
         android:layout_height="178dp"
         android:elevation="1dp"
-        android:visibility="visible"
+        android:visibility="gone"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -130,12 +118,12 @@
         android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true">
-
         <ImageView
             android:id="@+id/face_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </FrameLayout>
+
     <!--<com.pandroid.camera.FaceView-->
         <!--android:id="@+id/face_paint"-->
         <!--android:layout_width="100dp"-->

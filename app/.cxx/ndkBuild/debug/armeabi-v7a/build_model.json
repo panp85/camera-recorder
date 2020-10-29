@@ -5,6 +5,7 @@
       "sdkFolder": "C:\\Users\\pc\\AppData\\Local\\Android\\Sdk",
       "isNativeCompilerSettingsCacheEnabled": false,
       "isBuildOnlyTargetAbiEnabled": true,
+      "ideBuildTargetAbi": "arm64-v8a,armeabi-v7a,armeabi",
       "splitsAbiFilterSet": [],
       "intermediatesFolder": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates",
       "gradleModulePathName": ":app",
@@ -39,10 +40,8 @@
     "gradleBuildOutputFolder": "C:\\android_projects\\android-CameraVideo\\app\\.cxx\\cxx\\debug",
     "isDebuggableEnabled": true,
     "validAbiList": [
-      "ARMEABI_V7A",
       "ARM64_V8A",
-      "X86",
-      "X86_64"
+      "ARMEABI_V7A"
     ],
     "buildTargetSet": []
   },

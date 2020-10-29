@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity
                 }
             }
         });
-
+/*
         appBtn = (Button) findViewById(R.id.going);
         appBtn.setOnClickListener(this);
 
@@ -245,6 +245,7 @@ public class MainActivity extends AppCompatActivity
 
         sprBtn = (Button) findViewById(R.id.spr);
         sprBtn.setOnClickListener(this);
+ */
     }
 
     public void onClickSelect(){

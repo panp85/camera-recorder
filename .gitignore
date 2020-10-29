@@ -55,6 +55,11 @@ freeline/
 freeline_project_description.json
 
 .gradle/
-.idea/
+*idea
+workspace.*
 *.rar
 app/src/main/obj/
+
+
+app/.cxx/ndkBuild/debug/
+app/build/
