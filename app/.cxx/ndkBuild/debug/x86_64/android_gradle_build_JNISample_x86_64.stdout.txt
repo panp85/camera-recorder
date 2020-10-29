@@ -1,1 +1,3 @@
-make: Nothing to be done for `JNISample'.
+[x86_64] Compile++      : JNISample <= com_pandroid_JNIInterface.cpp
+[x86_64] StaticLibrary  : libstdc++.a
+[x86_64] SharedLibrary  : libJNISample.so

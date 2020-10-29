@@ -9,6 +9,7 @@
         android:entries="@array/resolution_options"
         android:entryValues="@array/resolution_options_values"
         android:dialogTitle="选择视频方便率"
+        android:visibility="gone"
         android:defaultValue="1"/>  <!-- 对应为entryValues的值，缺省1，即缺省为Number of Stops。 -->
     <ListPreference android:key="selected_wifi_option"
         android:title="wifi设置"
@@ -16,19 +17,21 @@
         android:entries="@array/wifi_options"
         android:entryValues="@array/wifi_options_values"
         android:dialogTitle="选择wifi功能"
-        android:defaultValue="1"/>
+        android:defaultValue="1"
+        android:visibility="gone" />
     <EditTextPreference
         android:key="server_address"
         android:selectAllOnFocus="true"
         android:singleLine="false"
         android:title="服务器地址"
-        android:visibility="visible" />
+        android:visibility="gone" />
+    <!--android:visibility="visible" /-->
 
-    <ListPreference 
-        android:key="otg_select"
-        android:title="otg mode"
-        android:entries="@array/otg_options"
-        android:entryValues="@array/otg_options_values"
-        android:defaultValue="1"
-        android:visibility="visible" />
+<ListPreference
+    android:key="otg_select"
+    android:title="otg mode"
+    android:entries="@array/otg_options"
+    android:entryValues="@array/otg_options_values"
+    android:defaultValue="1"
+    android:visibility="visible" />
 </PreferenceScreen>

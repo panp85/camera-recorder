@@ -6,6 +6,7 @@ import android.net.wifi.WifiConfiguration;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.ResultReceiver;
+import android.preference.EditTextPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.ListPreference;
@@ -16,6 +17,7 @@ import android.net.wifi.WifiManager;
 import android.content.Context;
 import com.pandroid.R;
 
+import android.preference.PreferenceGroup;
 import android.provider.Settings;
 import android.util.Log;
 
@@ -31,6 +33,7 @@ public class FightListPreferenceActivity extends PreferenceActivity implements P
     static final String TAG = "ListPreference";
     ListPreference lp_wifi;
 	ListPreference lp_resolution;
+    EditTextPreference etl_server_address;
 	ListPreference lp_otg;
 	private WifiManager mWifiManager;
 	private ConnectivityManager mCm;
@@ -44,10 +47,16 @@ public class FightListPreferenceActivity extends PreferenceActivity implements P
 		addPreferencesFromResource(R.xml.system_options);
 
 		lp_resolution=(ListPreference)findPreference("selected_resolution_option");
-	    lp_resolution.setOnPreferenceChangeListener(this); 
+	    lp_resolution.setOnPreferenceChangeListener(this);
+        getPreferenceScreen().removePreference(lp_resolution);
 
 		lp_wifi=(ListPreference)findPreference("selected_wifi_option");
-		lp_wifi.setOnPreferenceChangeListener(this); 
+		lp_wifi.setOnPreferenceChangeListener(this);
+        getPreferenceScreen().removePreference(lp_wifi);
+
+        etl_server_address=(EditTextPreference)findPreference("server_address");
+        //etl_server_address.setOnPreferenceChangeListener(this);
+        getPreferenceScreen().removePreference(etl_server_address);
 
 		lp_otg=(ListPreference)findPreference("otg_select");
 		lp_otg.setOnPreferenceChangeListener(this);
@@ -61,6 +70,7 @@ public class FightListPreferenceActivity extends PreferenceActivity implements P
             lp_otg.setSummary("device");
             lp_otg.setValue("1");
         }
+
 		mWifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 		mCm = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
 	
