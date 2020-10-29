@@ -145,12 +145,13 @@ public class MainActivity_Camera extends AppCompatActivity implements View.OnCli
             @Override  
             public void run()  
             {
-
+                Looper.prepare();
                 zt = new MessageTask(mAppContext, "camera");
 				zt.start();
                 Looper.loop();  
             }  
-        };  
+        };
+
         mPoolThread.start();  
 		
     }

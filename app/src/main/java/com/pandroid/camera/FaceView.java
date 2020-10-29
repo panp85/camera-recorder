@@ -243,6 +243,7 @@ public class FaceView extends View
         mDisplayRotation = orientation;
     }
 
+
 	public int getDisplayRotation() {
 	    Context context = getContext();
 		Activity activity;

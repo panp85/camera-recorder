@@ -20,4 +20,12 @@
         <item>1</item>
         <item>2</item>
     </string-array>
+    <string-array name="otg_options">
+        <item>host</item>
+        <item>device</item>
+    </string-array>
+    <string-array name="otg_options_values">
+        <item>0</item>
+        <item>1</item>
+    </string-array>
 </resources>

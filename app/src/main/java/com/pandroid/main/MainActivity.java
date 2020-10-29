@@ -4,24 +4,21 @@ import com.pandroid.message.MessageTask;
 
 import android.Manifest;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Camera;
-import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
+import android.os.Build;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ToggleButton;
 import android.widget.CompoundButton;
@@ -30,15 +27,6 @@ import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-import android.hardware.Camera.Size;
-import android.graphics.YuvImage;
-import android.graphics.ImageFormat;
-import android.graphics.Rect;
-import java.io.ByteArrayOutputStream;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.graphics.Color;
 import android.os.Looper;
 import android.os.Handler;
 
@@ -49,19 +37,13 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.content.pm.PackageManager;
-import android.preference.ListPreference;
-import android.preference.Preference.OnPreferenceChangeListener;
 
 import com.dinuscxj.progressbar.CircleProgressBar;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
-
-import java.io.FileOutputStream;
-import java.io.FileNotFoundException;
 
 import android.view.LayoutInflater;
 
@@ -73,7 +55,6 @@ import com.pandroid.R;
 public class MainActivity extends AppCompatActivity 
     implements View.OnClickListener, SharedPreferences.OnSharedPreferenceChangeListener{
 
-
     //存放照片的文件夹
     public final static String  BASE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/video/";
 	public final static String TAG = "pandroid_APP";
@@ -82,6 +63,9 @@ public class MainActivity extends AppCompatActivity
     private SurfaceView mSurfaceView;
     private Button cameraBtn;
     private Button appBtn;
+    private Button luceBtn;
+	private Button cellBtn;
+    private Button sprBtn;
     private ToggleButton ftpBtn;
 	private ImageView imageView;
     private ImageView tag_start;
@@ -117,17 +101,18 @@ public class MainActivity extends AppCompatActivity
 	private SharedPreferences mSharedPreferences;
 
 	View mRootView;
-
+    private Intent intent;
 
 	private boolean mHasCriticalPermissions;
 
-    @Override
 
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		
-        checkPermissions();
-
+        if(Build.VERSION.SDK_INT >= 23) {
+            checkPermissions();
+        }
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mAppContext = getApplicationContext();
         mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(mAppContext);
 
@@ -142,8 +127,10 @@ public class MainActivity extends AppCompatActivity
          
 	     mMessageTask = new MessageTask(mAppContext, "messageTask");
 		 mMessageTask.start();
-         mMessageTask.setup_message();
+         //mMessageTask.setup_message();
 
+
+        sendBroadcast(new Intent(com.pandroid.ftp.swiftp.FsService.ACTION_START_FTPSERVER));
 /*
 		try {
             Thread.sleep(1000);
@@ -151,8 +138,19 @@ public class MainActivity extends AppCompatActivity
             return;
         }
         */
-        PreferenceManager.getDefaultSharedPreferences(mAppContext).registerOnSharedPreferenceChangeListener(this);	
-		
+        PreferenceManager.getDefaultSharedPreferences(mAppContext).registerOnSharedPreferenceChangeListener(this);
+
+        try {
+            //Thread.sleep(2000);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        new Thread(new Runnable(){
+            @Override
+            public void run(){
+				//startRecord();
+            }
+		}).start();
 
     }
 	 protected void onStart(Bundle savedInstanceState) {
@@ -182,7 +180,9 @@ public class MainActivity extends AppCompatActivity
                 checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) ==
                         PackageManager.PERMISSION_GRANTED &&
                 checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) ==
-                        PackageManager.PERMISSION_GRANTED) {
+                        PackageManager.PERMISSION_GRANTED &&
+                checkSelfPermission(Manifest.permission.READ_PHONE_STATE) ==
+                        PackageManager.PERMISSION_GRANTED){
             mHasCriticalPermissions = true;
         } else {
             mHasCriticalPermissions = false;
@@ -198,8 +198,9 @@ public class MainActivity extends AppCompatActivity
             editor.apply();
             requestPermission = true;
        }
-        return requestPermission;
+       return requestPermission;
     }
+	 
     private class MainHandler extends Handler {
         public MainHandler(Looper looper) {
             super(looper);
@@ -207,13 +208,7 @@ public class MainActivity extends AppCompatActivity
 
         @Override
         public void handleMessage(Message msg) {
-/*            if (msg.what == HIDE_ACTION_BAR) {
-                removeMessages(HIDE_ACTION_BAR);
-                CameraActivity.this.setSystemBarsVisibility(false);
-            }else if ( msg.what == SWITCH_SAVE_PATH ) {
-                mCurrentModule.onSwitchSavePath();
-            }
-*/
+
          }
     }
     private void initView() {
@@ -241,6 +236,15 @@ public class MainActivity extends AppCompatActivity
 
         appBtn = (Button) findViewById(R.id.going);
         appBtn.setOnClickListener(this);
+
+        luceBtn = (Button) findViewById(R.id.lc);
+        luceBtn.setOnClickListener(this);
+		
+		cellBtn = (Button) findViewById(R.id.cell);
+        cellBtn.setOnClickListener(this);
+
+        sprBtn = (Button) findViewById(R.id.spr);
+        sprBtn.setOnClickListener(this);
     }
 
     public void onClickSelect(){
@@ -271,6 +275,16 @@ public class MainActivity extends AppCompatActivity
         super.onConfigurationChanged(newConfig);
     }
 
+    private void startRecord(){
+        com.pandroid.camera.CameraImpl.instance(mAppContext).openCamera(new Handler(Looper.getMainLooper()));
+        //com.pandroid.camera.FaceView faceview = (com.pandroid.camera.FaceView)findViewById(R.id.face_paint);
+        //com.pandroid.camera.CameraImpl.instance(mAppContext).openFace(faceview);
+        com.pandroid.camera.CameraImpl.instance(mAppContext).startRecord();
+        //appBtn.setText("后台应用正在运行.....");
+        //appBtn.setBackgroundColor(getResources().getColor(R.color.green));
+        //mRootView.requestLayout();
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -286,17 +300,57 @@ public class MainActivity extends AppCompatActivity
                     Toast.makeText(this, "该功能未开放，敬请期待", Toast.LENGTH_SHORT).show();
                 }
                 break;
+
             case R.id.going:
-                Log.i(TAG, "app ppt, in onClick, going");
+                /*Log.i(TAG, "app ppt, in onClick, going");
 				com.pandroid.camera.CameraImpl.instance(mAppContext).openCamera(new Handler(Looper.getMainLooper()));
                 com.pandroid.camera.FaceView faceview = (com.pandroid.camera.FaceView)findViewById(R.id.face_paint);
 				com.pandroid.camera.CameraImpl.instance(mAppContext).openFace(faceview);
-                //com.pandroid.camera.CameraImpl.instance(mAppContext).startRecord();
+                com.pandroid.camera.CameraImpl.instance(mAppContext).startRecord();
                 appBtn.setText("后台应用正在运行.....");
                 appBtn.setBackgroundColor(getResources().getColor(R.color.green));
-				mRootView.requestLayout();
+				mRootView.requestLayout();*/
+                startRecord();
                 break;
 
+            case R.id.lc:
+                Log.i(TAG, "app ppt, in onClick, lc");
+                // Intent intent = this.getPackageManager().("com.pandroid.message.MainActivity_Camera");
+                Intent intent_luce=new Intent();
+                if(intent_luce!=null)   {
+                    intent_luce.setClass(this, com.pandroid.lc.MainActivity.class); //设置跳转的Activity
+                    startActivity(intent_luce);
+                }
+                else	{
+                    Toast.makeText(this, "该功能未开放，敬请期待", Toast.LENGTH_SHORT).show();
+                }
+                break;
+				
+			case R.id.cell:
+                Log.i(TAG, "app ppt, in onClick, cell");
+                // Intent intent = this.getPackageManager().("com.pandroid.message.MainActivity_Camera");
+                Intent intent_cell=new Intent();
+                if(intent_cell!=null)   {
+                    intent_cell.setClass(this, com.pandroid.luce.CellSettingMainActivity.class); //设置跳转的Activity
+                    startActivity(intent_cell);
+                }
+				else{
+					Toast.makeText(this, "该功能未开放，敬请期待", Toast.LENGTH_SHORT).show();
+				}
+                break;
+
+            case R.id.spr:
+                Log.i(TAG, "app ppt, in onClick, spr");
+                // Intent intent = this.getPackageManager().("com.pandroid.message.MainActivity_Camera");
+                Intent intent_spr=new Intent();
+                if(intent_spr != null)   {
+                    intent_spr.setClass(this, com.pandroid.spreadtrum.MainActivity.class); //设置跳转的Activity
+                    startActivity(intent_spr);
+                }
+                else	{
+                    Toast.makeText(this, "该功能未开放，敬请期待", Toast.LENGTH_SHORT).show();
+                }
+                break;
         }
     }
 

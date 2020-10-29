@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/android-CameraVideo.iml" filepath="$PROJECT_DIR$/android-CameraVideo.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/lc/lc.iml" filepath="$PROJECT_DIR$/lc/lc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spreadtrum/spreadtrum.iml" filepath="$PROJECT_DIR$/spreadtrum/spreadtrum.iml" />
     </modules>
   </component>
 </project>

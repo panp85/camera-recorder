@@ -27,10 +27,12 @@ public class PermissionsActivity extends Activity {
     private int mIndexPermissionRequestLocation;
     private int mIndexPermissionRequestStorageWrite;
     private int mIndexPermissionRequestStorageRead;
+    private int mIndexPermissionRequestReadPhone;
     private boolean mShouldRequestCameraPermission;
     private boolean mShouldRequestMicrophonePermission;
     private boolean mShouldRequestLocationPermission;
     private boolean mShouldRequestStoragePermission;
+    private boolean mShouldRequestReadPhonePermission;
     private int mNumPermissionsToRequest;
     private boolean mFlagHasCameraPermission;
     private boolean mFlagHasMicrophonePermission;
@@ -90,6 +92,12 @@ public class PermissionsActivity extends Activity {
             mShouldRequestLocationPermission = true;
         }
 
+        if (checkSelfPermission(Manifest.permission.READ_PHONE_STATE)
+                != PackageManager.PERMISSION_GRANTED) {
+            mNumPermissionsToRequest++;
+            mShouldRequestReadPhonePermission = true;
+        }
+
         if (mNumPermissionsToRequest != 0) {
             buildPermissionsRequest();
         } else {
@@ -120,12 +128,18 @@ public class PermissionsActivity extends Activity {
                     Manifest.permission.READ_EXTERNAL_STORAGE;
             mIndexPermissionRequestStorageRead = permissionsRequestIndex;
             permissionsRequestIndex++;
-
         }
         if (mShouldRequestLocationPermission) {
             permissionsToRequest[permissionsRequestIndex] =
                     Manifest.permission.ACCESS_COARSE_LOCATION;
             mIndexPermissionRequestLocation = permissionsRequestIndex;
+            permissionsRequestIndex++;
+        }
+        if (mShouldRequestReadPhonePermission) {
+            permissionsToRequest[permissionsRequestIndex] =
+                    Manifest.permission.READ_PHONE_STATE;
+            mIndexPermissionRequestReadPhone = permissionsRequestIndex;
+            permissionsRequestIndex++;
         }
         requestPermissions(permissionsToRequest, PERMISSION_REQUEST_CODE);
     }
@@ -170,6 +184,15 @@ public class PermissionsActivity extends Activity {
             if ((grantResults.length >= mIndexPermissionRequestLocation + 1) &&
                 (grantResults[mIndexPermissionRequestLocation] ==
                         PackageManager.PERMISSION_GRANTED)) {
+                // Do nothing
+            } else {
+                // Do nothing
+            }
+        }
+        if (mShouldRequestReadPhonePermission) {
+            if ((grantResults.length >= mIndexPermissionRequestReadPhone + 1) &&
+                    (grantResults[mIndexPermissionRequestReadPhone] ==
+                            PackageManager.PERMISSION_GRANTED)) {
                 // Do nothing
             } else {
                 // Do nothing

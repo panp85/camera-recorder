@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/mcc"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:id="@+id/mcctag"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dip"
+            android:text="mcc："
+            />
+
+        <EditText
+            android:id="@+id/mccvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="please input mcc"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_alignTop="@+id/atcommandtip"
+             />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mnc"
+        android:layout_below="@+id/mcc"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:id="@+id/mnctag"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dip"
+            android:text="mnc："
+            />
+
+        <EditText
+            android:id="@+id/mncvalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="please input mnc"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_alignTop="@+id/mnctag"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/type"
+        android:layout_below="@+id/mnc"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+        <TextView
+            android:id="@+id/typetag"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dip"
+            android:text="制式"
+            />
+
+        <EditText
+            android:id="@+id/typevalue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint=""
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_alignTop="@+id/typetag"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/cell1"
+        android:layout_below="@+id/type"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/cell1tag"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="30dip"
+            android:text="大区："
+            />
+
+        <EditText
+            android:id="@+id/cell1value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="大区"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_alignTop="@+id/cell1tag"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/cell2"
+        android:layout_below="@+id/cell1"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/cell2tag"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dip"
+            android:layout_weight="1"
+            android:text="小区：" />
+
+        <EditText
+            android:id="@+id/cell2value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="please input"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_alignTop="@+id/cell2tag"
+            />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/cell3"
+        android:layout_below="@+id/cell2"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/cell3tag"
+            android:layout_width="80dip"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dip"
+            android:layout_weight="1"
+            android:text="bid：" />
+
+        <EditText
+            android:id="@+id/cell3value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="非cdma不用输入"
+            android:maxLines="1"
+            android:layout_weight="1"
+            android:layout_alignTop="@+id/cell3value"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/send"
+        android:orientation="horizontal"
+        android:gravity="center_horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_below="@+id/cell3"
+        android:layout_alignParentStart="true">
+        <Button
+            android:id="@+id/button_send"
+            style="@android:style/Widget.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal"
+            android:text="设置"
+            android:visibility="visible" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/resulttip"
+        android:textColor="#0f0"
+        android:textSize="20dp"
+        android:text="结果："
+        android:width="300px"
+        android:layout_below="@+id/send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"/>
+
+    <TextView
+        android:id="@+id/result"
+        android:textColor="#f00"
+        android:textSize="30px"
+        android:text="null"
+        android:width="300px"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/resulttip"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="20dp"/>
+
+
+
+
+</RelativeLayout>

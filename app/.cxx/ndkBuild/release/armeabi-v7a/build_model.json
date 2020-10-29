@@ -1,0 +1,60 @@
+{
+  "variant": {
+    "module": {
+      "rootBuildGradleFolder": "C:\\android_projects\\android-CameraVideo",
+      "sdkFolder": "C:\\Users\\pc\\AppData\\Local\\Android\\Sdk",
+      "isNativeCompilerSettingsCacheEnabled": false,
+      "isBuildOnlyTargetAbiEnabled": true,
+      "splitsAbiFilterSet": [],
+      "intermediatesFolder": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates",
+      "gradleModulePathName": ":app",
+      "moduleRootFolder": "C:\\android_projects\\android-CameraVideo\\app",
+      "makeFile": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\jni\\Android.mk",
+      "buildSystem": "NDK_BUILD",
+      "compilerSettingsCacheFolder": "C:\\android_projects\\android-CameraVideo\\.cxx",
+      "cxxFolder": "C:\\android_projects\\android-CameraVideo\\app\\.cxx",
+      "ndkFolder": "C:\\Users\\pc\\AppData\\Local\\Android\\Sdk\\ndk\\20.1.5948944",
+      "ndkVersion": "20.1.5948944",
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "cmakeToolchainFile": "."
+    },
+    "buildSystemArgumentList": [],
+    "cFlagList": [],
+    "cppFlagsList": [],
+    "variantName": "release",
+    "soFolder": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\ndkBuild\\release\\lib",
+    "objFolder": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\ndkBuild\\release\\obj\\local",
+    "jsonFolder": "C:\\android_projects\\android-CameraVideo\\app\\.cxx\\ndkBuild\\release",
+    "gradleBuildOutputFolder": "C:\\android_projects\\android-CameraVideo\\app\\.cxx\\cxx\\release",
+    "isDebuggableEnabled": false,
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86",
+      "X86_64"
+    ],
+    "buildTargetSet": []
+  },
+  "abi": "ARMEABI_V7A",
+  "abiPlatformVersion": 17,
+  "cxxBuildFolder": "C:\\android_projects\\android-CameraVideo\\app\\.cxx\\ndkBuild\\release\\armeabi-v7a",
+  "jsonFile": "C:\\android_projects\\android-CameraVideo\\app\\.cxx\\ndkBuild\\release\\armeabi-v7a\\android_gradle_build.json",
+  "gradleBuildOutputFolder": "C:\\android_projects\\android-CameraVideo\\app\\.cxx\\cxx\\release\\armeabi-v7a",
+  "objFolder": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\ndkBuild\\release\\obj\\local\\armeabi-v7a",
+  "buildCommandFile": "C:\\android_projects\\android-CameraVideo\\app\\.cxx\\ndkBuild\\release\\armeabi-v7a\\build_command.txt",
+  "buildOutputFile": "C:\\android_projects\\android-CameraVideo\\app\\.cxx\\ndkBuild\\release\\armeabi-v7a\\build_output.txt",
+  "modelOutputFile": "C:\\android_projects\\android-CameraVideo\\app\\.cxx\\ndkBuild\\release\\armeabi-v7a\\build_model.json",
+  "jsonGenerationLoggingRecordFile": "C:\\android_projects\\android-CameraVideo\\app\\.cxx\\ndkBuild\\release\\armeabi-v7a\\json_generation_record.json",
+  "compileCommandsJsonFile": "C:\\android_projects\\android-CameraVideo\\app\\.cxx\\ndkBuild\\release\\armeabi-v7a\\compile_commands.json"
+}

@@ -9,6 +9,7 @@ import android.hardware.Camera;
 import android.media.CamcorderProfile;
 import android.media.MediaRecorder;
 import android.os.Environment;
+import android.os.StatFs;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,6 +47,9 @@ import com.dinuscxj.progressbar.CircleProgressBar;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -70,9 +74,9 @@ public class  CameraImpl implements MediaRecorder.OnErrorListener, SurfaceHolder
 
     //存放照片的文件夹
 	public final static String TAG = "CameraImpl";
-	private int FILE_SIZE = (10);
+	private int FILE_SIZE = (20*3*1);
 	public final static String	BASE_PATH = Environment.getExternalStorageDirectory().getAbsolutePath() + "/video/";
-
+    List<File> list = null;
 
 	Activity mActivity;
 
@@ -345,7 +349,7 @@ public class  CameraImpl implements MediaRecorder.OnErrorListener, SurfaceHolder
 	                        });
                             resetRecord();
                             startRecord();
-								/*
+							/*
 							Looper.prepare();
 							new Thread(runnable).start();
 						    Looper.loop();						    
@@ -355,6 +359,7 @@ public class  CameraImpl implements MediaRecorder.OnErrorListener, SurfaceHolder
 	                }
 	            };
             }
+			
             mTimer.schedule(timerTask, 0, 1000);
 
         } catch (Exception e) {
@@ -420,6 +425,96 @@ public class  CameraImpl implements MediaRecorder.OnErrorListener, SurfaceHolder
     }
 
     /**
+     * 获取目录下所有文件(按时间排序)
+     *
+     * @param path
+     * @return
+     */
+    public static List<File> getFileSort(String path) {
+
+        List<File> list = getFiles(path, new ArrayList<File>());
+
+        if (list != null && list.size() > 0) {
+
+            Collections.sort(list, new Comparator<File>() {
+                public int compare(File file, File newFile) {
+                    if (file.lastModified() < newFile.lastModified()) {
+                        return -1;
+                    } else if (file.lastModified() == newFile.lastModified()) {
+                        return 0;
+                    } else {
+                        return 1;
+                    }
+
+                }
+            });
+
+        }
+
+        return list;
+    }
+    /**
+     *
+     * 获取目录下所有文件
+     *
+     * @param realpath
+     * @param files
+     * @return
+     */
+    public static List<File> getFiles(String realpath, List<File> files) {
+        File realFile = new File(realpath);
+        if (realFile.isDirectory()) {
+            File[] subfiles = realFile.listFiles();
+            for (File file : subfiles) {
+                if (file.isDirectory()) {
+                    getFiles(file.getAbsolutePath(), files);
+                } else {
+                    files.add(file);
+                }
+            }
+        }
+        return files;
+    }
+    private boolean loadAllFile_flag = false;
+    private void loadAllFile(){
+        if (!loadAllFile_flag) {
+            list = getFileSort(BASE_PATH);
+            loadAllFile_flag = true;
+        }
+    }
+
+    private void file_delete_oldest(){
+        File sdcardDir = Environment.getExternalStorageDirectory();
+        StatFs sf = new  StatFs(sdcardDir.getPath());
+        long  blockSize = sf.getBlockSize();
+        long  blockCount = sf.getBlockCount();
+        long  availCount = sf.getAvailableBlocks();
+        loadAllFile();
+
+        //if(false)
+        if(availCount*blockCount/1024/1024 >= 600)
+        {
+            return;
+        }
+        Log.i(TAG, "camera ppt, in file_delete_oldest, file:");
+        try {
+/*            for (int i = 0; i < list.size() - 1; i++) {
+                if(i >= list.size() - 3 || i < 3) {
+                    Log.i(TAG, "camera ppt, in file_delete_oldest, file: " + list.get(i).getName());
+                }
+                //
+            }
+            */
+            for (int i = 0; i < 2 && i < list.size() - 1; i++) {
+                Log.i(TAG, "camera ppt, in file_delete_oldest, file: " + list.get(i).getName());
+                list.get(i).delete();
+                list.remove(i);
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    /**
      * 创建目录与文件
      */
     private void createRecordDir() {
@@ -429,10 +524,12 @@ public class  CameraImpl implements MediaRecorder.OnErrorListener, SurfaceHolder
         if (!FileDir.exists()) {
             FileDir.mkdirs();
         }
+        file_delete_oldest();
         // 创建文件
         try {
             mVecordFile = new File(FileDir.getAbsolutePath() + "/" + Utils.getDateNumber() +".mp4");
             Log.d("Path:", mVecordFile.getAbsolutePath());
+            list.add(mVecordFile);
         } catch (Exception e) {
             e.printStackTrace();
         }

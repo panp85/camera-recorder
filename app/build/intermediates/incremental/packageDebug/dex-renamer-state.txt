@@ -1,4 +1,0 @@
-#Mon Mar 19 18:00:20 CST 2018
-base.0=C\:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\transforms\\jack\\debug\\folders\\1000\\1f\\main
-renamed.0=classes.dex
-file.0=C\:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\transforms\\jack\\debug\\folders\\1000\\1f\\main\\classes.dex

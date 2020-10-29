@@ -39,6 +39,8 @@ public class MessageTask extends HandlerThread
     private static final int SEND_SOCKET_MESSAGE_LOCAL = 0;
 
 	private static final int SEND_SOCKET_MESSAGE_REMOTE = 100;
+
+    public static final int REC_SOCKET_MESSAGE_PROCESS = 200;
     private static final int HEART_EVENT = 1;
 
 	private static final int MESSAGE_TYPE = 0;
@@ -63,7 +65,7 @@ public class MessageTask extends HandlerThread
         PreferenceManager.getDefaultSharedPreferences(context).registerOnSharedPreferenceChangeListener(this);
         //init();
     }
-    private void start_RemoteClinet(){
+    private void start_RemoteClient(){
         SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(context);
 
         String server = sp.getString("server_address", "192.168.1.1:12345");
@@ -75,14 +77,14 @@ public class MessageTask extends HandlerThread
 	public void setup_message()
 	{
 		mSocketClient_local = new SocketClient();
-        start_RemoteClinet();
+        start_RemoteClient();
 
 		mThreadHandler = new Handler(getLooper())
 		{
 			@Override
 			public void handleMessage(Message msg)
 			{
-				Log.i("MessageTask", "heart ppt, msg.what: " + msg.what);
+				//Log.i("MessageTask", "heart ppt, msg.what: " + msg.what);
 
                 switch(msg.what){
                     case SEND_SOCKET_MESSAGE_LOCAL:
@@ -109,11 +111,13 @@ public class MessageTask extends HandlerThread
 		};
 
         setAppType();
+        mSocketClient_local.setcallbackHandler(mThreadHandler);
+        mSocketClient_remote.setcallbackHandler(mThreadHandler);
 
         task = new TimerTask() {
             @Override
             public void run() {
-                Log.i("MessageTask", "heart ppt, go in");
+                //Log.i("MessageTask", "heart ppt, go in");
 
  /*               Message message = Message.obtain();
                 message.what = HEART_EVENT;
@@ -146,7 +150,7 @@ public class MessageTask extends HandlerThread
             Message message = encode(message_json);
 			message.what = SEND_SOCKET_MESSAGE_LOCAL;
             mThreadHandler.sendMessage(message);
-			message.what = SEND_SOCKET_MESSAGE_REMOTE;
+			//message.what = SEND_SOCKET_MESSAGE_REMOTE;
 
 	    }catch (JSONException ex) {
 			throw new RuntimeException(ex);
@@ -155,13 +159,13 @@ public class MessageTask extends HandlerThread
 
 	private  Message encode(JSONObject message_json){
         byte buffer[];
-        Log.i("MessageTask", "message ppt, in setAppType, json data length: " + message_json.toString().length());
+        //Log.i("MessageTask", "message ppt, in encode, json data length: " + message_json.toString().length());
         buffer = new byte[2+message_json.toString().length()+1];
         //String l1 = String.valueOf((((short)message_json.toString().length())>>8));
         buffer[0] = (byte)(((short)(message_json.toString().length()+1)>>8) & 0xff);
         //String l2 = String.valueOf((((short)message_json.toString().length()) & 0xff));
         buffer[1] = (byte)((((short)(message_json.toString().length()+1)) & 0xff));
-        Log.i("MessageTask", "message ppt, in setAppType, buffer: " +
+        Log.i("MessageTask", "message ppt, in encode, buffer: " +
                 buffer[0] + ", " + buffer[1]);
 
         System.arraycopy(message_json.toString().getBytes(), 0, buffer, 2, message_json.toString().length());
@@ -178,7 +182,7 @@ public class MessageTask extends HandlerThread
             if(mSocketClient_remote != null) {
                 mSocketClient_remote.closeSocket();
             }
-            start_RemoteClinet();
+            start_RemoteClient();
         }
     }
 /*

@@ -1,0 +1,17 @@
+Executable : C:\Users\pc\AppData\Local\Android\sdk\ndk\20.1.5948944\ndk-build.cmd
+arguments : 
+NDK_PROJECT_PATH=null
+APP_BUILD_SCRIPT=C:\android_projects\android-CameraVideo\app\src\main\jni\Android.mk
+NDK_APPLICATION_MK=C:\android_projects\android-CameraVideo\app\src\main\jni\Application.mk
+APP_ABI=armeabi-v7a
+NDK_ALL_ABIS=armeabi-v7a
+NDK_DEBUG=1
+APP_PLATFORM=android-17
+NDK_OUT=C:/android_projects/android-CameraVideo/app/build/intermediates/ndkBuild/debug/obj
+NDK_LIBS_OUT=C:\android_projects\android-CameraVideo\app\build\intermediates\ndkBuild\debug\lib
+APP_SHORT_COMMANDS=false
+LOCAL_SHORT_COMMANDS=false
+-B
+-n
+jvmArgs : 
+

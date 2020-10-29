@@ -1,0 +1,34 @@
+{
+  "buildFiles": [
+    "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\jni\\Android.mk",
+    "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\jni\\Application.mk"
+  ],
+  "cleanCommands": [
+    "C:\\Users\\pc\\AppData\\Local\\Android\\sdk\\ndk\\20.1.5948944\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\android_projects\\android-CameraVideo\\app\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\android_projects\\android-CameraVideo\\app\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-17 NDK_OUT\u003dC:/android_projects/android-CameraVideo/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dC:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\ndkBuild\\release\\lib clean"
+  ],
+  "buildTargetsCommand": "C:\\Users\\pc\\AppData\\Local\\Android\\sdk\\ndk\\20.1.5948944\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\android_projects\\android-CameraVideo\\app\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\android_projects\\android-CameraVideo\\app\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-17 NDK_OUT\u003dC:/android_projects/android-CameraVideo/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dC:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\ndkBuild\\release\\lib {LIST_OF_TARGETS_TO_BUILD}",
+  "libraries": {
+    "JNISample-release-armeabi-v7a": {
+      "buildCommand": "C:\\Users\\pc\\AppData\\Local\\Android\\sdk\\ndk\\20.1.5948944\\ndk-build.cmd NDK_PROJECT_PATH\u003dnull APP_BUILD_SCRIPT\u003dC:\\android_projects\\android-CameraVideo\\app\\src\\main\\jni\\Android.mk NDK_APPLICATION_MK\u003dC:\\android_projects\\android-CameraVideo\\app\\src\\main\\jni\\Application.mk APP_ABI\u003darmeabi-v7a NDK_ALL_ABIS\u003darmeabi-v7a NDK_DEBUG\u003d0 APP_PLATFORM\u003dandroid-17 NDK_OUT\u003dC:/android_projects/android-CameraVideo/app/build/intermediates/ndkBuild/release/obj NDK_LIBS_OUT\u003dC:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\ndkBuild\\release\\lib C:/android_projects/android-CameraVideo/app/build/intermediates/ndkBuild/release/obj/local/armeabi-v7a/libJNISample.so",
+      "toolchain": "toolchain-armeabi-v7a",
+      "abi": "armeabi-v7a",
+      "artifactName": "JNISample",
+      "files": [
+        {
+          "src": "C:\\android_projects\\android-CameraVideo\\app\\src\\main\\jni\\com_pandroid_JNIInterface.cpp",
+          "flags": "-target armv7-none-linux-androideabi17 -fdata-sections -ffunction-sections -fstack-protector-strong -funwind-tables -no-canonical-prefixes --sysroot C:/Users/pc/AppData/Local/Android/sdk/ndk/20.1.5948944/build//../toolchains/llvm/prebuilt/windows-x86_64/sysroot -g -Wno-invalid-command-line-argument -Wno-unused-command-line-argument -fno-addrsig -fno-exceptions -fno-rtti -fpic -march\u003darmv7-a -mthumb -Oz -DNDEBUG -IC:/Users/pc/AppData/Local/Android/sdk/ndk/20.1.5948944/build//../sources/cxx-stl/system/include -IC:/android_projects/android-CameraVideo/app/src/main/jni -frtti -fexceptions -std\u003dc++0x -DANDROID -Wa,--noexecstack -Wformat -Werror\u003dformat-security"
+        }
+      ],
+      "output": "C:\\android_projects\\android-CameraVideo\\app\\build\\intermediates\\ndkBuild\\release\\obj\\local\\armeabi-v7a\\libJNISample.so"
+    }
+  },
+  "toolchains": {
+    "toolchain-armeabi-v7a": {
+      "cppCompilerExecutable": "C:\\Users\\pc\\AppData\\Local\\Android\\sdk\\ndk\\20.1.5948944\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

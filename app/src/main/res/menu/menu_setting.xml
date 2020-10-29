@@ -5,7 +5,7 @@
     tools:context=".menu_setting">
     <item
         android:id="@+id/menu_setting1"
-        android:title="system setting"
+        android:title="setting"
         android:colorPrimary="?attr/colorPrimary"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"

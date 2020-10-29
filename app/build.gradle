@@ -2,18 +2,26 @@ apply plugin: 'com.android.application'
 
 android {
     //compileSdkVersion 25
-    compileSdkVersion 24
-    buildToolsVersion "25.0.2"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
     defaultConfig {
         applicationId "com.pandroid"
-        minSdkVersion 21
-        targetSdkVersion 25
+        minSdkVersion 17
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
-        jackOptions {
-            enabled true
+        ndk {
+            moduleName "JNISample"
+        }
+//      jackOptions {
+//          enabled true
+//      }
+    }
+    externalNativeBuild {
+        ndkBuild {
+            path 'src/main/jni/Android.mk'
         }
     }
     buildTypes {
@@ -29,7 +37,7 @@ android {
 
     sourceSets {
         main {
-            jni.srcDirs = []
+            jni.srcDirs = ['src/main/jni', 'src/main/jni/']
             //jniLibs.srcDirs = ['libs/armeabi-v7a', 'libs/arm64-v8a']
             jniLibs.srcDirs 'libs/armeabi-v7a'
         }
@@ -38,34 +46,28 @@ android {
 
 allprojects {
     repositories {
-        maven{
+        maven {
             url 'https://jitpack.io'
         }
     }
 }
 dependencies {
-   compile fileTree(dir: 'libs', include: ['*.jar'])
-
-   androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-
     compile 'net.vrallev.android:cat:1.0.5'
-    provided "org.projectlombok:lombok:1.16.12"
-
-    compile 'com.android.support:appcompat-v7:25.3.1'
+    provided 'org.projectlombok:lombok:1.16.12'
+    compile 'com.android.support:appcompat-v7:28.0.0'
     //compile 'com.android.support:appcompat-v7:25.4.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    compile 'com.android.support:design:25.4.0'
+    compile 'com.android.support:design:28.0.0'
     compile 'com.dinuscxj:circleprogressbar:1.1.1'
     compile 'com.squareup.okhttp3:okhttp:3.6.0'
-
     compile 'com.twofortyfouram:android-plugin-client-sdk-for-locale:4.0.3'
-
     annotationProcessor 'org.projectlombok:lombok:1.16.12'
-
     testCompile 'junit:junit:4.12'
-
-
     compile files('libs/ftp4j-1.7.2.jar')
+    compile project(':lc')
+    compile project(':spreadtrum')
 }

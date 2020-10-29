@@ -23,12 +23,15 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
+import com.pandroid.JNIInterface;
+
 /** �����ϵ�ʹ�÷�ʽ����API level 11֮ǰ����δ����fragmentʱ��ʹ�÷�ʽ������������ѧϰһЩpreferences�Ļ��������ص�
  * XML�﷨*/
 public class FightListPreferenceActivity extends PreferenceActivity implements Preference.OnPreferenceChangeListener {
     static final String TAG = "ListPreference";
     ListPreference lp_wifi;
 	ListPreference lp_resolution;
+	ListPreference lp_otg;
 	private WifiManager mWifiManager;
 	private ConnectivityManager mCm;
 
@@ -40,17 +43,27 @@ public class FightListPreferenceActivity extends PreferenceActivity implements P
 		super.onCreate(savedInstanceState);
 		addPreferencesFromResource(R.xml.system_options);
 
-
 		lp_resolution=(ListPreference)findPreference("selected_resolution_option");
 	    lp_resolution.setOnPreferenceChangeListener(this); 
-
 
 		lp_wifi=(ListPreference)findPreference("selected_wifi_option");
 		lp_wifi.setOnPreferenceChangeListener(this); 
 
+		lp_otg=(ListPreference)findPreference("otg_select");
+		lp_otg.setOnPreferenceChangeListener(this);
 
+        String res = JNIInterface.getOtgfromJNI();
+        Log.i(TAG, "ppt, otg: " + res);
+		if(res.substring(0,1).equals("0")){
+			lp_otg.setSummary("host");
+			lp_otg.setValue("0");
+        }else{
+            lp_otg.setSummary("device");
+            lp_otg.setValue("1");
+        }
 		mWifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
 		mCm = (ConnectivityManager) getApplicationContext().getSystemService(Context.CONNECTIVITY_SERVICE);
+	
 /*		Preference p = findPreference("flight_option_preference");
 		showInfo("summary: " + p.getSummary());
 		showInfo("title: " + p.getTitle());
@@ -192,6 +205,18 @@ public class FightListPreferenceActivity extends PreferenceActivity implements P
 			else if(preference == lp_resolution)
 			{
 			    Log.i(TAG, "ppt SETTING, resolution = " + (String)newValue);
+			}
+
+			else if(preference == lp_otg)
+			{
+			    Log.i(TAG, "otg = " + (String)newValue);
+			    if(newValue.equals("0")){
+			        lp_otg.setSummary("host");
+                }
+			    else{
+                    lp_otg.setSummary("device");
+                }
+				Log.i(TAG, "return: " + JNIInterface.setOtg2JNI((String)newValue));
 			}
 		 } 
 	     return true; 
