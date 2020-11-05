@@ -61,5 +61,7 @@ workspace.*
 app/src/main/obj/
 
 
-app/*cxx/ndkBuild/debug/
+app/*cxx/ndkBuild/
 app/build/
+media/build/
+app/src/main/libs/

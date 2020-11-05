@@ -23,16 +23,16 @@
         <receiver android:name=".LcReceiver">
             <intent-filter>
                 <action android:name="ELITOR_CLOCK" />
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <!--action android:name="android.intent.action.BOOT_COMPLETED" /-->
             </intent-filter>
         </receiver>
 
         <activity android:name="com.pandroid.lc.MainActivity">
             <intent-filter>
                 <!--<action android:name="android.intent.action.MAIN" />-->
-                <category android:name="android.intent.category.HOME" />
+                <!--category android:name="android.intent.category.HOME" /-->
                 <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <!--category android:name="android.intent.category.LAUNCHER" /-->
             </intent-filter>
         </activity>
 

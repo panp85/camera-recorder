@@ -21,8 +21,8 @@
         <item>2</item>
     </string-array>
     <string-array name="otg_options">
-        <item>host</item>
         <item>device</item>
+        <item>host</item>
     </string-array>
     <string-array name="otg_options_values">
         <item>0</item>

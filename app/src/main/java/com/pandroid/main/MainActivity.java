@@ -11,6 +11,8 @@ import android.content.res.Configuration;
 import android.graphics.drawable.AnimationDrawable;
 import android.hardware.Camera;
 import android.media.MediaRecorder;
+import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
@@ -41,6 +43,7 @@ import android.content.pm.PackageManager;
 import com.dinuscxj.progressbar.CircleProgressBar;
 
 import java.io.File;
+import java.io.RandomAccessFile;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -246,6 +249,8 @@ public class MainActivity extends AppCompatActivity
         sprBtn = (Button) findViewById(R.id.spr);
         sprBtn.setOnClickListener(this);
  */
+        appBtn = (Button) findViewById(R.id.file_test);
+        appBtn.setOnClickListener(this);
     }
 
     public void onClickSelect(){
@@ -351,6 +356,41 @@ public class MainActivity extends AppCompatActivity
                 else	{
                     Toast.makeText(this, "该功能未开放，敬请期待", Toast.LENGTH_SHORT).show();
                 }
+                break;
+
+            case R.id.file_test:
+                Log.i(TAG, "app ppt, in onClick, file_test");
+                File file = null;
+
+                try {
+                    file = new File(Environment.getExternalStorageDirectory().getPath() + "/000");
+                    if (!file.exists()) {
+                        file.mkdirs();
+                    }
+                    //MediaScannerConnection.scanFile(this, new String[] { file.getAbsolutePath() }, null, null);
+                } catch (Exception e) {
+                    Log.i("error:", e+"");
+                }
+                File file1 = null;
+                try {
+                    file1 = new File(Environment.getExternalStorageDirectory().getPath() + "/000/pp");
+                    if (!file1.exists()) {
+                        file1.createNewFile();
+                    }
+                    RandomAccessFile raf = new RandomAccessFile(file1, "rwd");
+                    String strContent = "ppp" + "\r\n";
+                    raf.write(strContent.getBytes());
+                    raf.close();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                //MediaScannerConnection.scanFile(this, new String[] { file.getAbsolutePath() }, null, null);
+
+                Intent intent1 = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+                Uri uri = Uri.fromFile(file1);
+                intent1.setData(uri);
+                sendBroadcast(intent1);
+
                 break;
         }
     }

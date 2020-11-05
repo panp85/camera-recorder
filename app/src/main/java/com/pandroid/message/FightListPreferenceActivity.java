@@ -21,6 +21,10 @@ import android.preference.PreferenceGroup;
 import android.provider.Settings;
 import android.util.Log;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.RandomAccessFile;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -35,10 +39,11 @@ public class FightListPreferenceActivity extends PreferenceActivity implements P
 	ListPreference lp_resolution;
     EditTextPreference etl_server_address;
 	ListPreference lp_otg;
+    EditTextPreference etp_serial;
 	private WifiManager mWifiManager;
 	private ConnectivityManager mCm;
-
-	
+    final String serial_path = "/persist/zed";
+	String serial = "empty";
 	@SuppressWarnings("deprecation")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,16 +63,31 @@ public class FightListPreferenceActivity extends PreferenceActivity implements P
         //etl_server_address.setOnPreferenceChangeListener(this);
         getPreferenceScreen().removePreference(etl_server_address);
 
+        etp_serial=(EditTextPreference)findPreference("device_serial");
+        try {
+            File file = new File("");
+            FileInputStream fis = new FileInputStream(serial_path);
+            int length = fis.available();
+            byte[] buffer = new byte[length];
+            fis.read(buffer);
+            serial = new String(buffer,"GB2312");
+            fis.close();
+            etp_serial.setEnabled(false);
+        }catch (Exception e){
+        }
+        etp_serial.setSummary(serial);
+        etp_serial.setOnPreferenceChangeListener(this);
+
 		lp_otg=(ListPreference)findPreference("otg_select");
 		lp_otg.setOnPreferenceChangeListener(this);
 
         String res = JNIInterface.getOtgfromJNI();
         Log.i(TAG, "ppt, otg: " + res);
 		if(res.substring(0,1).equals("0")){
-			lp_otg.setSummary("host");
+			lp_otg.setSummary("device");
 			lp_otg.setValue("0");
         }else{
-            lp_otg.setSummary("device");
+            lp_otg.setSummary("host");
             lp_otg.setValue("1");
         }
 
@@ -220,14 +240,35 @@ public class FightListPreferenceActivity extends PreferenceActivity implements P
 			{
 			    Log.i(TAG, "otg = " + (String)newValue);
 			    if(newValue.equals("0")){
-			        lp_otg.setSummary("host");
+			        lp_otg.setSummary("device");
                 }
 			    else{
-                    lp_otg.setSummary("device");
+                    lp_otg.setSummary("host");
                 }
 				Log.i(TAG, "return: " + JNIInterface.setOtg2JNI((String)newValue));
 			}
-		 } 
+		 }
+		 if (preference instanceof EditTextPreference){
+                 if(preference == etp_serial){
+                     Log.i(TAG, "new serail: " + (String)newValue);
+                     etp_serial.setSummary((String)newValue);
+                     try {
+                         File file = new File("/persist/zed");
+                         if (!file.exists()) {
+                             //Log.d("TestFile", "Create the file:" + strFilePath);
+                             //file.getParentFile().mkdirs();
+                             file.createNewFile();
+                         }
+                         RandomAccessFile raf = new RandomAccessFile(file, "rwd");
+                         //raf.seek(file.length());
+                         raf.write(((String)newValue).getBytes());
+                         raf.close();
+                         etp_serial.setEnabled(false);
+                     }catch (Exception e) {
+                         Log.e("TestFile", "Error on write File:" + e);
+                     }
+                 }
+         }
 	     return true; 
 	 } 
 /*

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">pandroid</string>
+    <string name="app_name">tools</string>
 
     <string name="swiftp_name">FTP Server</string>
     <string name="swiftp_name_free">FTP Server (Free)</string>

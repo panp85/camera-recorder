@@ -41,17 +41,19 @@ JNIEXPORT jstring JNICALL Java_com_pandroid_JNIInterface_setOtg2JNI
     printf("mode: %s.\n", str);
     __android_log_print(ANDROID_LOG_ERROR,TAG ,"mode: %s.\n", str);
     if(str[0] == '0'){
-        system("echo 0 > /sys/class/gpio/gpio140/value");
+        system("echo 0 > /sys/class/gpio/gpio63/value");
+        system("echo 0 > /sys/class/gpio/gpio99/value");
     }
     else{
-        system("echo 1 > /sys/class/gpio/gpio140/value");
+        system("echo 1 > /sys/class/gpio/gpio63/value");
+        system("echo 0 > /sys/class/gpio/gpio99/value");
    }
     return env -> NewStringUTF("ok");
  }
 
 JNIEXPORT jstring JNICALL Java_com_pandroid_JNIInterface_getOtgfromJNI
     (JNIEnv *env, jobject){
-    int fd = open("/sys/class/gpio/gpio140/value",O_RDONLY);
+    int fd = open("/sys/class/gpio/gpio63/value",O_RDONLY);
     if(fd < 0)
     {
         __android_log_print(ANDROID_LOG_ERROR,TAG ,"open file error:%m\n");
