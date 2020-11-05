@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Gradle: com.twofortyfouram:android-spackle:2.0.3@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/50c65bac0a7e9e70fd1f256e01649fcd/android-spackle-2.0.3/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/50c65bac0a7e9e70fd1f256e01649fcd/android-spackle-2.0.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/50c65bac0a7e9e70fd1f256e01649fcd/android-spackle-2.0.3/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twofortyfouram/android-spackle/2.0.3/9fc053004132464909681d383f7e4be6c269d295/android-spackle-2.0.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twofortyfouram/android-spackle/2.0.3/702fb070dba2b8aaa9a2fc84be82622239904175/android-spackle-2.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

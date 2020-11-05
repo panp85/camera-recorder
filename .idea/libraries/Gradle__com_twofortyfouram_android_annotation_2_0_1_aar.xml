@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.twofortyfouram:android-annotation:2.0.1@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dc78c928d1471a6d9abf992a34c38366/android-annotation-2.0.1/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/dc78c928d1471a6d9abf992a34c38366/android-annotation-2.0.1/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twofortyfouram/android-annotation/2.0.1/36c7ccb93675e6de9332d08ab0f49e8c203b29f4/android-annotation-2.0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twofortyfouram/android-annotation/2.0.1/29713afaf933f074669d22dcd1e95bada8bad96e/android-annotation-2.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

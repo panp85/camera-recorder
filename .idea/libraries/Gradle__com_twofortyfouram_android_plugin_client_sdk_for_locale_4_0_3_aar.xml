@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Gradle: com.twofortyfouram:android-plugin-client-sdk-for-locale:4.0.3@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/aaf3250170d61c66155e952012b8c479/android-plugin-client-sdk-for-locale-4.0.3/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/aaf3250170d61c66155e952012b8c479/android-plugin-client-sdk-for-locale-4.0.3/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/aaf3250170d61c66155e952012b8c479/android-plugin-client-sdk-for-locale-4.0.3/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twofortyfouram/android-plugin-client-sdk-for-locale/4.0.3/bf0f449f46e5cafb7b17210c2f0422d22e938bbb/android-plugin-client-sdk-for-locale-4.0.3-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twofortyfouram/android-plugin-client-sdk-for-locale/4.0.3/db910761e8d6757d73a3a224dd4fe0f8ba69f0b9/android-plugin-client-sdk-for-locale-4.0.3-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

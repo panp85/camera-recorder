@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.twofortyfouram:android-assertion:1.2.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/af6abb7f0b296f69a660408704013abf/android-assertion-1.2.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/af6abb7f0b296f69a660408704013abf/android-assertion-1.2.0/res" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twofortyfouram/android-assertion/1.2.0/3cbacff6e3246dda4e855f99eaeaed7df5b9b184/android-assertion-1.2.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.twofortyfouram/android-assertion/1.2.0/4660883664cd4cc60418487ee73a2e3c3504a284/android-assertion-1.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
