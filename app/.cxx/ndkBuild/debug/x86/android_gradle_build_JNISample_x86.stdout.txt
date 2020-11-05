@@ -1,3 +1,0 @@
-[x86] Compile++      : JNISample <= com_pandroid_JNIInterface.cpp
-[x86] StaticLibrary  : libstdc++.a
-[x86] SharedLibrary  : libJNISample.so
